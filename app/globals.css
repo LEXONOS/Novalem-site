@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   NOVALEM — Design tokens
+   Tout passe par @theme : chaque token devient une utilitaire Tailwind.
+   Les échelles par défaut de Tailwind sont volontairement remises à zéro
+   (--color-*: initial, --text-*: initial) pour qu'aucune valeur hors système
+   ne puisse être utilisée par accident.
+   ========================================================================= */
+
+@theme {
+  /* ---------- COULEUR ---------------------------------------------------
+     Reset de la palette Tailwind. `transparent` et `currentColor` restent
+     disponibles nativement.                                               */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Fonds et surfaces */
+  --color-porcelaine-000: #fffdf9; /* fond principal */
+  --color-porcelaine-100: #faf7f1; /* fond alterné */
+  --color-porcelaine-200: #f1ece2; /* surfaces, cartes */
+  --color-porcelaine-300: #e3dcce; /* bordures */
+
+  /* Encres */
+  --color-encre-900: #12100c; /* texte principal */
+  --color-encre-600: #4a4640; /* texte secondaire */
+  --color-encre-500: #6d6860; /* texte tertiaire AA — légendes, eyebrow */
+  --color-encre-400: #8a857b; /* gris décoratif : traits, icônes, gros texte */
+
+  /* Or */
+  --color-or-100: #f7edd6; /* fonds d'accent très légers */
+  --color-or-400: #e8a020; /* accent clair, survols, aplats */
+  --color-or-500: #c8900a; /* accent principal, aplats et traits */
+  --color-or-600: #a67405; /* or lisible : icônes et texte ≥ 24px */
+  --color-or-700: #7f5900; /* or AA à toute taille : liens, petits labels */
+
+  /* ---------- TYPOGRAPHIE ---------------------------------------------- */
+  --font-*: initial;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  /* Échelle fluide, 8 niveaux, du display au caption */
+  --text-*: initial;
+
+  --text-display: clamp(3.25rem, 1.05rem + 8.8vw, 8.5rem);
+  --text-display--line-height: 0.94;
+  --text-display--letter-spacing: -0.042em;
+
+  --text-h1: clamp(2.5rem, 1.35rem + 4.6vw, 5.25rem);
+  --text-h1--line-height: 0.98;
+  --text-h1--letter-spacing: -0.034em;
+
+  --text-h2: clamp(2rem, 1.3rem + 2.8vw, 3.5rem);
+  --text-h2--line-height: 1.02;
+  --text-h2--letter-spacing: -0.026em;
+
+  --text-h3: clamp(1.5rem, 1.15rem + 1.4vw, 2.25rem);
+  --text-h3--line-height: 1.05;
+  --text-h3--letter-spacing: -0.018em;
+
+  --text-h4: clamp(1.1875rem, 1.06rem + 0.5vw, 1.5rem);
+  --text-h4--line-height: 1.18;
+  --text-h4--letter-spacing: -0.01em;
+
+  --text-lead: clamp(1.125rem, 1.02rem + 0.42vw, 1.375rem);
+  --text-lead--line-height: 1.55;
+  --text-lead--letter-spacing: -0.004em;
+
+  --text-body: clamp(1rem, 0.965rem + 0.14vw, 1.0625rem);
+  --text-body--line-height: 1.6;
+  --text-body--letter-spacing: 0em;
+
+  --text-caption: clamp(0.8125rem, 0.795rem + 0.07vw, 0.875rem);
+  --text-caption--line-height: 1.5;
+  --text-caption--letter-spacing: 0.01em;
+
+  /* Style eyebrow (piloté par la primitive <Eyebrow>) */
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  /* ---------- GRILLE ET ESPACEMENT -------------------------------------- */
+  --spacing: 0.25rem; /* base 4px : p-4 = 16px, p-13 = 52px */
+
+  --spacing-gutter: clamp(1.25rem, 0.9rem + 1.6vw, 2.25rem);
+  --spacing-section: clamp(6rem, 3.2rem + 8vw, 12.5rem); /* 96 → 200 */
+  --spacing-section-sm: clamp(4rem, 2.4rem + 4.6vw, 7.5rem); /* 64 → 120 */
+
+  --container-*: initial;
+  --container-content: 82.5rem; /* 1320px, largeur max de contenu */
+  --container-reading: 45rem; /* 720px, largeur de lecture */
+  --container-measure: 68ch; /* mesure max du corps de texte */
+
+  /* ---------- RAYONS ET ÉLÉVATION --------------------------------------- */
+  --radius-*: initial;
+  --radius-xs: 2px;
+  --radius-card: 4px;
+  --radius-pill: 999px;
+
+  --shadow-*: initial;
+  --shadow-lift:
+    0 1px 1px rgb(18 16 12 / 0.02), 0 10px 30px -14px rgb(18 16 12 / 0.1);
+  --shadow-lift-hover:
+    0 1px 1px rgb(18 16 12 / 0.03), 0 20px 44px -18px rgb(18 16 12 / 0.14);
+
+  /* ---------- MOTION (miroir CSS de lib/motion.ts) ----------------------- */
+  --ease-*: initial;
+  --ease-linear: linear;
+  --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-power4-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-silk: cubic-bezier(0.65, 0.05, 0, 1);
+
+  --duration-instant: 150ms;
+  --duration-fast: 300ms;
+  --duration-base: 600ms;
+  --duration-slow: 1000ms;
+  --duration-cinematic: 1600ms;
+}
+
+/* =========================================================================
+   BASE
+   ========================================================================= */
+
+@layer base {
+  :root {
+    /* Débord des masques : compense les jambages coupés par overflow:hidden */
+    --split-bleed: 0.16em;
+    /* Distance de départ d'une révélation par masque */
+    --rise: 112%;
+    /* Grain global */
+    --noise-opacity: 0.035;
+  }
+
+  * {
+    border-color: var(--color-porcelaine-300);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Lenis pilote le défilement : on neutralise le smooth natif qui entre
+       en conflit. Réactivé automatiquement si le mouvement est réduit. */
+    scroll-behavior: auto;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-porcelaine-000);
+    color: var(--color-encre-900);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-variation-settings: "SOFT" 0, "WONK" 1;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Focus : toujours visible, jamais supprimé. Or-700 tient AA partout. */
+  :focus-visible {
+    outline: 2px solid var(--color-or-700);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::selection {
+    background-color: var(--color-or-100);
+    color: var(--color-encre-900);
+  }
+
+  /* Ancres : compense un éventuel header collant sans casser Lenis */
+  [id] {
+    scroll-margin-top: --spacing(24);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: smooth;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* =========================================================================
+   PRIMITIVES CSS — support de <SplitText> et <MaskReveal>
+   Toutes les transformations restent en transform/opacity.
+   ========================================================================= */
+
+@layer components {
+  /* Masque générique : cache le contenu qui monte depuis le bas.
+     Le padding-bottom + margin-bottom négatif évite de rogner les jambages. */
+  .mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: var(--split-bleed);
+    margin-bottom: calc(var(--split-bleed) * -1);
+  }
+
+  .mask-inline {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding-bottom: var(--split-bleed);
+    margin-bottom: calc(var(--split-bleed) * -1);
+  }
+
+  .mask > *,
+  .mask-inline > * {
+    display: inline-block;
+    will-change: transform;
+  }
+
+  /* Éléments générés par SplitText */
+  .sp-word {
+    display: inline-block;
+  }
+
+  .sp-char {
+    display: inline-block;
+  }
+
+  .sp-line {
+    display: block;
+  }
+
+  /* Trait horizontal révélé par scaleX */
+  .rule {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-porcelaine-300);
+    transform-origin: left center;
+    will-change: transform;
+  }
+
+  .rule-or {
+    background-color: var(--color-or-500);
+  }
+
+  /* Grille éditoriale 12 colonnes */
+  .grid-editorial {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--spacing-gutter);
+    row-gap: var(--spacing-gutter);
+  }
+}
+
+@utility measure {
+  max-width: var(--container-measure);
+}
+
+@utility text-eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-feature-settings: "case" 1;
+}
