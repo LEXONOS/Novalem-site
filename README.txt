@@ -1,11 +1,4 @@
-STUDIO NOVALEM — KIT DE CONSTRUCTION DU SITE
-============================================
-
-- CLAUDE.md : le brief complet. Ouvre CE DOSSIER dans Claude Code et demande-lui de
-  construire le site en suivant CLAUDE.md (il le lit automatiquement).
-- index.html : le haut de page deja valide (header + hero). Point de depart et reference du hero.
-- assets/louis-particles.html : ton portrait en particules, a integrer dans la section L'atelier.
-- assets/emblem.svg : l'embleme du logo.
-- assets/README-VISUELS.txt : ou trouver la video du hero et les photos.
-
-DEPLOIEMENT FINAL : OVH via FileZilla (fichiers statiques) ou Vercel.
+STUDIO NOVALEM — SITE
+- index.html : le site complet. Ouvre-le dans ton navigateur pour voir la video du hero et les particules.
+- assets/hero.mp4 : la video de fond du hero.
+Mise en ligne : OVH via FileZilla (glisse index.html + le dossier assets), ou Vercel/Netlify (glisse le dossier).
