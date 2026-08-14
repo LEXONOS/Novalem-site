@@ -1,0 +1,21 @@
+{
+  "name": "studio-novalem",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Site vitrine de Studio Novalem — studio de creation de sites internet aux Antilles francaises.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "lenis": "^1.1.20"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11"
+  }
+}

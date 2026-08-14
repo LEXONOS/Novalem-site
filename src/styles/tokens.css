@@ -1,0 +1,70 @@
+/* =============================================================
+   STUDIO NOVALEM — TOKENS DE DESIGN (source unique de verite)
+   Direction artistique VALIDEE : clair, editorial, facon Apple.
+   Encre #0B0D18 sur canvas #F3F5FA, accent indigo #3D4DFF avec parcimonie.
+   ============================================================= */
+:root {
+  /* ---- Couleurs : encre & canvas ---- */
+  --canvas:      #F3F5FA;   /* fond de page */
+  --canvas-2:    #EAEDF5;   /* fond alterne, surfaces basses */
+  --ink:         #0B0D18;   /* texte principal, titres */
+  --ink-2:       #20232F;   /* texte fort secondaire */
+  --soft:        #5C6276;   /* texte secondaire, legendes */
+  --soft-2:      #8B90A0;   /* metadonnees, hints */
+  --line:        rgba(11, 13, 24, 0.12);  /* filets marques */
+  --line-2:      rgba(11, 13, 24, 0.07);  /* filets discrets */
+
+  /* ---- Accent indigo (parcimonie) ---- */
+  --indigo:      #3D4DFF;
+  --indigo-600:  #2D3AE0;
+  --indigo-100:  rgba(61, 77, 255, 0.10);
+  --indigo-glow: rgba(61, 77, 255, 0.28);
+
+  /* ---- Verre (glassmorphism leger) ---- */
+  --glass:       rgba(255, 255, 255, 0.60);
+  --glass-2:     rgba(255, 255, 255, 0.72);
+  --glass-line:  rgba(255, 255, 255, 0.55);
+  --shadow-sm:   0 1px 2px rgba(11, 13, 24, 0.04), 0 4px 16px rgba(11, 13, 24, 0.05);
+  --shadow-md:   0 10px 40px rgba(11, 13, 24, 0.08), 0 2px 8px rgba(11, 13, 24, 0.04);
+  --shadow-lg:   0 24px 80px rgba(11, 13, 24, 0.12), 0 6px 18px rgba(11, 13, 24, 0.06);
+
+  /* ---- Typographie ---- */
+  --fd: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* titres */
+  --fs: "Fraunces", Georgia, "Times New Roman", serif;                                     /* touches editoriales */
+  --fb: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;        /* corps / UI */
+
+  /* Echelle fluide (clamp) — mobile d'abord */
+  --t-eyebrow: 12px;
+  --t-body:    clamp(15px, 1.1vw + 12px, 18px);
+  --t-lead:    clamp(18px, 1.4vw + 13px, 22px);
+  --t-h4:      clamp(19px, 1.2vw + 14px, 24px);
+  --t-h3:      clamp(24px, 2vw + 16px, 34px);
+  --t-h2:      clamp(32px, 4.2vw + 12px, 60px);
+  --t-h1:      clamp(44px, 8.4vw + 4px, 96px);
+  --t-display: clamp(64px, 14vw, 200px);
+
+  /* ---- Espacements (base 4px) ---- */
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px;  --sp-7: 48px; --sp-8: 64px;
+  --sp-9: 96px;
+  --section-y: clamp(88px, 12vh, 168px);   /* rythme vertical des sections */
+  --gutter:    clamp(20px, 5vw, 44px);      /* marge laterale */
+  --maxw:      1240px;                      /* largeur de contenu */
+  --readw:     42rem;                       /* colonne de lecture */
+
+  /* ---- Rayons ---- */
+  --r-sm: 10px; --r-md: 16px; --r-lg: 22px; --r-xl: 32px; --r-pill: 999px;
+
+  /* ---- Easings (miroir de src/lib/motion.ts) ---- */
+  --e-expo:  cubic-bezier(0.16, 1, 0.3, 1);   /* expoOut, grands mouvements */
+  --e-power: cubic-bezier(0.22, 1, 0.36, 1);  /* power4Out approx */
+  --e-silk:  cubic-bezier(0.65, 0.05, 0, 1);  /* balancier profond */
+  --e-out:   cubic-bezier(0.33, 1, 0.68, 1);  /* micro-interactions */
+
+  /* ---- Durees ---- */
+  --d-instant: 0.15s; --d-fast: 0.3s; --d-base: 0.6s; --d-slow: 1s; --d-cine: 1.6s;
+
+  /* ---- Divers ---- */
+  --z-nav: 60; --z-menu: 55; --z-fx: 0; --z-content: 2;
+  --nav-h: 76px;
+}

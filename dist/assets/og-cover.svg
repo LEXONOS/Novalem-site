@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <radialGradient id="g1" cx="30%" cy="12%" r="80%">
+      <stop offset="0%" stop-color="#Dfe4FF"/>
+      <stop offset="55%" stop-color="#F3F5FA"/>
+      <stop offset="100%" stop-color="#F3F5FA"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="88%" cy="90%" r="60%">
+      <stop offset="0%" stop-color="#C9D0FF"/>
+      <stop offset="100%" stop-color="#F3F5FA" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g1)"/>
+  <rect width="1200" height="630" fill="url(#g2)"/>
+  <g transform="translate(84,84)" fill="none">
+    <circle cx="24" cy="24" r="22.4" stroke="#0B0D18" stroke-width="1.6"/>
+    <path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="#0B0D18"/>
+    <text x="60" y="34" font-family="Georgia, serif" font-size="30" fill="#0B0D18" font-weight="500">Novalem</text>
+  </g>
+  <text x="84" y="330" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#0B0D18" font-weight="500" letter-spacing="-2">Le web des Antilles,</text>
+  <text x="84" y="416" font-family="Georgia, 'Times New Roman', serif" font-size="76" fill="#0B0D18" font-weight="500" letter-spacing="-2" font-style="italic">niveau grande maison.</text>
+  <text x="84" y="512" font-family="Arial, sans-serif" font-size="27" fill="#5C6276">Sites sur mesure en code natif · Rapides · Référencés · 100 % à vous</text>
+  <rect x="84" y="556" width="64" height="4" rx="2" fill="#3D4DFF"/>
+</svg>
