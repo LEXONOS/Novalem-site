@@ -40,15 +40,114 @@
   });
 })();
 
-/* ---------- Nova : bulle + assistant ---------- */
+/* ---------- Nova : orbe vivante + assistant ---------- */
 (function(){
-  var bub=document.getElementById('bub'), nova=document.getElementById('nova');
-  if(!bub||!nova) return;
-  var v=bub.querySelector('video'); if(v){ v.playbackRate=0.45; }
+  var bub=document.getElementById('bub'), nova=document.getElementById('nova'), cv=document.getElementById('orb');
+  if(!bub||!nova||!cv) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ===== ORBE : rendu temps reel, physique d'impulsion =====
+     speed monte d'un coup au clic (impulsion) puis redescend en friction
+     exponentielle -> acceleration franche, deceleration douce, jamais d'arret sec. */
+  var ctx=cv.getContext('2d');
+  var DPR=Math.min(window.devicePixelRatio||1,2), S=86;
+  cv.width=S*DPR; cv.height=S*DPR; ctx.scale(DPR,DPR);
+  var C=S/2, R=S*0.30;
+  var phase=0, speed=1, IDLE=1, scale=1, scaleV=0, glow=0;
+  var last=performance.now();
+
+  function impulse(){ speed=Math.min(speed+6.5,9); scale=0.84; }
+
+  function blobPath(t,agit){
+    ctx.beginPath();
+    for(var k=0;k<=64;k++){
+      var th=(k/64)*Math.PI*2;
+      var r=R*(1
+        +(0.050+0.030*agit)*Math.sin(3*th+t*1.35)
+        +(0.034+0.026*agit)*Math.sin(5*th-t*0.9)
+        +(0.026+0.018*agit)*Math.sin(2*th+t*0.55));
+      var x=C+Math.cos(th)*r, y=C+Math.sin(th)*r;
+      k?ctx.lineTo(x,y):ctx.moveTo(x,y);
+    }
+    ctx.closePath();
+  }
+  function star(x,y,s,rot,alpha){
+    ctx.save(); ctx.translate(x,y); ctx.rotate(rot); ctx.globalAlpha=alpha;
+    ctx.beginPath();
+    ctx.moveTo(0,-s); ctx.quadraticCurveTo(0,0,s,0); ctx.quadraticCurveTo(0,0,0,s);
+    ctx.quadraticCurveTo(0,0,-s,0); ctx.quadraticCurveTo(0,0,0,-s);
+    ctx.fillStyle='#fff'; ctx.fill(); ctx.restore(); ctx.globalAlpha=1;
+  }
+  function frame(now){
+    var dt=Math.min((now-last)/1000,0.05); last=now;
+    speed+=(IDLE-speed)*(1-Math.exp(-dt*1.9));      // friction douce vers le ralenti
+    scaleV+=(1-scale)*dt*38; scaleV*=Math.exp(-dt*7); scale+=scaleV*dt*8;  // ressort squash
+    glow+=((speed-1)/8-glow)*(1-Math.exp(-dt*5));
+    phase+=dt*(0.55+0.85*speed);
+    var agit=Math.min((speed-1)/6,1);
+
+    ctx.clearRect(0,0,S,S);
+    ctx.save(); ctx.translate(C,C); ctx.scale(scale,2-scale>1.12?1.12:2-scale); ctx.translate(-C,-C);
+
+    // halo
+    ctx.save();
+    ctx.shadowColor='rgba(61,77,255,'+(0.35+glow*0.5)+')';
+    ctx.shadowBlur=14+glow*26;
+
+    // trois nappes de couleur qui tournent a des vitesses differentes
+    var cols=[['#7C5CFF',0.0,0.95],['#3D4DFF',2.1,0.9],['#22D3EE',4.2,0.85]];
+    ctx.globalCompositeOperation='source-over';
+    blobPath(phase,agit);
+    var g0=ctx.createRadialGradient(C,C,R*0.1,C,C,R*1.25);
+    g0.addColorStop(0,'#EDEFFB'); g0.addColorStop(1,'#DDE2F5');
+    ctx.fillStyle=g0; ctx.fill();
+    ctx.restore();
+
+    ctx.globalCompositeOperation='multiply';
+    for(var n=0;n<cols.length;n++){
+      var off=cols[n][1], al=cols[n][2];
+      var gx=C+Math.cos(phase*0.9+off)*R*0.55, gy=C+Math.sin(phase*0.9+off)*R*0.55;
+      blobPath(phase+off*0.35,agit);
+      var g=ctx.createRadialGradient(gx,gy,0,gx,gy,R*1.5);
+      g.addColorStop(0,cols[n][0]); g.addColorStop(1,'rgba(255,255,255,0)');
+      ctx.globalAlpha=al; ctx.fillStyle=g; ctx.fill();
+    }
+    ctx.globalAlpha=1; ctx.globalCompositeOperation='source-over';
+
+    // reflet verre
+    blobPath(phase,agit); ctx.save(); ctx.clip();
+    var hl=ctx.createRadialGradient(C-R*0.5,C-R*0.65,0,C-R*0.5,C-R*0.65,R*1.1);
+    hl.addColorStop(0,'rgba(255,255,255,.75)'); hl.addColorStop(0.45,'rgba(255,255,255,.12)'); hl.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=hl; ctx.fillRect(0,0,S,S); ctx.restore();
+
+    // etoile nova en orbite + poussieres
+    var orbR=R*1.45;
+    var sx=C+Math.cos(phase*1.6)*orbR, sy=C+Math.sin(phase*1.6)*orbR*0.92;
+    star(sx,sy,3.4+agit*1.6,phase*2,0.9);
+    for(var q=0;q<3;q++){
+      var pp=phase*(1.1+q*0.35)+q*2.1;
+      var dx=C+Math.cos(pp)*orbR*0.9, dy=C+Math.sin(pp)*orbR*0.86;
+      ctx.beginPath(); ctx.arc(dx,dy,1.1+agit,0,Math.PI*2);
+      ctx.fillStyle='rgba(61,77,255,'+(0.35+agit*0.4)+')'; ctx.fill();
+    }
+    ctx.restore();
+    requestAnimationFrame(frame);
+  }
+  if(reduce){
+    // version calme : une seule image douce
+    blobPath(0,0);
+    var g=ctx.createRadialGradient(C-6,C-8,0,C,C,R*1.4);
+    g.addColorStop(0,'#7C5CFF'); g.addColorStop(0.6,'#3D4DFF'); g.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=g; ctx.fill();
+  } else {
+    requestAnimationFrame(frame);
+  }
+  bub.addEventListener('pointerenter',function(){ speed=Math.min(speed+0.9,3.2); });
+
+  /* ===== assistant ===== */
   var msgs=document.getElementById('nmsgs'), chipsBox=document.getElementById('nchips');
   var form=document.getElementById('nform'), input=document.getElementById('ninput');
   var opened=false, greeted=false;
-
   var REP={
     prix:"Quatre formules, devis ferme :\n• Essentiel — 390 €\n• Vitrine — 790 € (recommandé)\n• Signature — 1 190 €\n• Sur mesure — sur devis\nUne agence facture souvent 3 000 à 6 000 €.",
     delai:"Les délais :\n• Essentiel — 7 jours\n• Vitrine — 10 à 14 jours\n• Signature — 3 semaines\nDevis ferme sous 48 h après l'appel.",
@@ -57,7 +156,6 @@
     hello:"Bonjour ! Je suis Nova, l'assistant du studio. Je peux vous parler des formules, des délais ou de la méthode — ou vous mettre en contact avec Louis."
   };
   var CHIPS=[["Formules & prix","prix"],["Délais","delai"],["La méthode","methode"],["Parler à Louis","contact"]];
-
   function scrollBottom(){ msgs.scrollTop=msgs.scrollHeight; }
   function add(kind,text){ var d=document.createElement('div'); d.className='m '+kind; d.textContent=text; msgs.appendChild(d); scrollBottom(); }
   function typingOn(){ var t=document.createElement('div'); t.className='m ai typing'; t.id='ntyp'; t.innerHTML='<i></i><i></i><i></i>'; msgs.appendChild(t); scrollBottom(); }
@@ -78,7 +176,7 @@
   });
   function openNova(){
     opened=!opened; nova.classList.toggle('open',opened);
-    if(v){ v.playbackRate=2.2; bub.classList.add('pop'); setTimeout(function(){ bub.classList.remove('pop'); },320); setTimeout(function(){ v.playbackRate=0.45; },1100); }
+    impulse();
     if(opened && !greeted){ greeted=true; setTimeout(function(){ answer('hello'); },200); }
   }
   bub.addEventListener('click',openNova);
