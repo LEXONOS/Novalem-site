@@ -253,3 +253,37 @@
   .stepline i{transform:scaleX(1)!important}
   .nf .strike::after{width:100%!important}
 }
+
+
+/* ---------- resserrage offre/methode + separateur ---------- */
+#offre{padding-bottom:clamp(36px,5vw,60px)}
+#methode{padding-top:clamp(36px,5vw,60px)}
+.sep{display:flex;align-items:center;gap:18px;max-width:1240px;margin:clamp(10px,2vw,20px) auto;padding:0 clamp(20px,5vw,44px)}
+.sep-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(61,77,255,.45),rgba(124,92,255,.45),transparent);transform:scaleX(0);transition:transform 1.4s var(--e) .1s}
+.sep-line.l{transform-origin:right}
+.sep-line.r{transform-origin:left}
+.sep.in .sep-line{transform:scaleX(1)}
+.sep-star{width:20px;height:20px;color:#3D4DFF;flex:none;opacity:0;transform:scale(.4) rotate(-90deg);transition:opacity .6s var(--e) .5s,transform .8s var(--e) .5s;animation:sepspin 16s linear infinite 1.3s}
+.sep.in .sep-star{opacity:1;transform:scale(1) rotate(0)}
+@keyframes sepspin{to{rotate:360deg}}
+
+/* ---------- bloc "jamais" : plus de punch ---------- */
+.nofees{border:1px solid transparent;background:
+  linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)) padding-box,
+  linear-gradient(120deg,rgba(61,77,255,.35),rgba(124,92,255,.25),rgba(34,211,238,.35)) border-box}
+.nf-title{font-size:clamp(22px,3.6vw,30px)}
+.nf-zero{display:inline-flex;align-items:center;justify-content:center;width:fit-content;background:rgba(27,158,85,.1);border:1px solid rgba(27,158,85,.25);border-radius:999px;padding:4px 14px;font-size:20px;margin-top:6px;opacity:0;transform:scale(.6);transition:opacity .5s var(--e),transform .5s var(--e)}
+.nofees.in .nf-zero{opacity:1;transform:scale(1)}
+.nofees.in .nf:nth-child(1) .nf-zero{transition-delay:.7s}
+.nofees.in .nf:nth-child(2) .nf-zero{transition-delay:.85s}
+.nofees.in .nf:nth-child(3) .nf-zero{transition-delay:1s}
+.nf-save{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-top:22px;padding-top:20px;border-top:1px solid var(--line-2)}
+.nf-amount{font-family:var(--fd);font-weight:600;font-size:clamp(34px,6vw,52px);letter-spacing:-.02em;line-height:1;white-space:nowrap;
+  background:linear-gradient(100deg,#3D4DFF,#7C5CFF 55%,#22D3EE);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nf-amount i{font-style:normal;font-size:.45em;font-weight:500}
+.nf-savetxt{flex:1;min-width:260px;font-size:14.5px;color:var(--ink-2);max-width:56ch}
+.nf-ctx{display:inline-block;margin-top:8px;font-family:var(--fs);font-style:italic;color:var(--soft);font-size:13.5px}
+@media (prefers-reduced-motion:reduce){
+  .sep-line{transform:scaleX(1)!important}.sep-star{opacity:1!important;transform:none!important;animation:none}
+  .nf-zero{opacity:1!important;transform:none!important}
+}
