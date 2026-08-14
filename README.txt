@@ -4,8 +4,8 @@ studio-novalem-final/
   index.html                 -> la page (structure seule, propre et lisible)
   assets/css/style.css       -> tout le design
   assets/js/site.js          -> menu, apparitions au scroll, sons, secours du portrait
-  assets/js/particles.js     -> le portrait de Louis en particules (image integree dedans)
-  assets/img/louis.png       -> portrait statique (utilise en secours automatique)
+  (supprime : portrait desormais en image fixe)
+  assets/img/louis-particles.png -> portrait de Louis en particules (image fixe)
   assets/img/poster.jpg      -> image d'attente de la video du hero
   assets/img/emblem.svg      -> l'embleme du logo
   assets/video/hero.mp4      -> video du hero (encre bleue)

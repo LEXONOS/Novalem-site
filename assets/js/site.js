@@ -25,23 +25,3 @@
   snd.addEventListener('click',function(){ ac(); if(AC&&AC.state==='suspended')AC.resume(); on=!on; snd.classList.toggle('off',!on); if(on){tone(520,.05,'sine',.05);setTimeout(function(){tone(780,.07,'sine',.045);},40);} });
   document.querySelectorAll('a,button').forEach(function(el){ el.addEventListener('pointerenter',function(){tone(880,.05,'triangle',.02);}); });
 })();
-
-/* --- fiabilite du portrait particules --- */
-(function(){
-  function kick(){ try{ window.dispatchEvent(new Event('resize')); }catch(e){} }
-  window.addEventListener('load', function(){
-    kick(); setTimeout(kick,600); setTimeout(kick,1800);
-    setTimeout(function(){
-      var st=document.getElementById('portrait-stage');
-      if(st && !window.NOVALEM_PARTICLES_READY){
-        st.innerHTML='<img src="assets/img/louis.png" alt="Louis" style="width:100%;height:100%;object-fit:contain;filter:grayscale(1) contrast(1.05)">';
-      }
-    },4000);
-  });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(kick);
-  var st=document.getElementById('portrait-stage');
-  if (st && 'IntersectionObserver' in window){
-    var o=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ kick(); o.disconnect(); } }); },{threshold:.05});
-    o.observe(st);
-  }
-})();
