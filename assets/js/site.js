@@ -205,7 +205,16 @@
 /* ---------- hero : ralenti + parallaxe du panneau ---------- */
 (function(){
   var v=document.getElementById('heroVid');
-  if(v){ v.playbackRate=0.7; }
+  if(v){
+    v.playbackRate=0.7;
+    // petit ecran ou connexion lente -> version legere (assets/video/hero.mp4)
+    var slow=false;
+    try{ var c=navigator.connection; slow=c&&(c.saveData||/2g|3g/.test(c.effectiveType||'')); }catch(e){}
+    if(window.innerWidth<760||slow){
+      var src=v.querySelector('source');
+      if(src){ src.src='assets/video/hero.mp4'; v.load(); v.play&&v.play().catch(function(){}); }
+    }
+  }
   var panel=document.querySelector('.hpanel');
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(panel && !reduce){
