@@ -222,6 +222,7 @@
     window.addEventListener('scroll',function(){
       if(t) return; t=true;
       requestAnimationFrame(function(){
+        if(window.innerWidth<=900){ panel.style.transform=''; t=false; return; }
         var y=Math.min(window.scrollY,900);
         panel.style.transform='translateY('+(y*0.07)+'px)';
         t=false;

@@ -65,9 +65,6 @@
   .h1{animation-delay:.15s}.h2{animation-delay:.3s}.h3{animation-delay:.44s}.h4{animation-delay:.58s}
   .hp{animation-delay:.5s}
   @keyframes up{to{opacity:1;transform:none}}
-  .cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);opacity:0;animation:up .9s var(--e) 1s forwards}
-  .cue .line{width:1px;height:32px;background:linear-gradient(var(--soft),transparent);animation:drop 1.8s ease-in-out infinite}
-  @keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
   @media(max-width:900px){
     .hero{padding:120px 0 60px}
     .hgrid{grid-template-columns:1fr;gap:26px}
@@ -80,7 +77,7 @@
   .track{display:inline-flex;gap:44px;animation:scroll 30s linear infinite;font-family:var(--fd);font-weight:500;font-size:clamp(18px,3vw,28px)}
   .track .s{color:var(--accent)}
   @keyframes scroll{to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion:reduce){.track{animation:none}.cue .line{animation:none}}
+  @media (prefers-reduced-motion:reduce){.track{animation:none}}
 
   /* réalisation */
   .real{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,52px);align-items:center;margin-top:48px}
@@ -287,3 +284,22 @@
   .sep-line{transform:scaleX(1)!important}.sep-star{opacity:1!important;transform:none!important;animation:none}
   .nf-zero{opacity:1!important;transform:none!important}
 }
+
+
+/* ---------- hero mobile : la video EST l'ecran ---------- */
+@media(max-width:900px){
+  .hero{min-height:100svh;padding:104px 0 96px;display:flex;align-items:center}
+  .hgrid{grid-template-columns:1fr;position:static}
+  .hpanel{position:absolute;inset:0;border-radius:0;border:0;box-shadow:none;aspect-ratio:auto;order:0;z-index:0;animation:none;opacity:1;transform:none}
+  .hpanel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(243,245,250,.92) 0%,rgba(243,245,250,.42) 30%,rgba(243,245,250,.14) 55%,rgba(243,245,250,.55) 85%,rgba(243,245,250,.95) 100%)}
+  .hbadge{left:auto;right:14px;top:auto;bottom:14px;z-index:3}
+  .hero .inner{position:relative;z-index:2;background:rgba(255,255,255,.55);backdrop-filter:blur(18px) saturate(155%);-webkit-backdrop-filter:blur(18px) saturate(155%);border:1px solid rgba(255,255,255,.75);border-radius:22px;padding:24px 22px;box-shadow:0 30px 70px -34px rgba(18,22,60,.4)}
+  .hero h1{font-size:clamp(38px,10.5vw,54px)}
+}
+
+
+/* ---------- rythme : sections resserrees ---------- */
+.sec{padding:clamp(58px,8vw,96px) 0}
+#realisations{padding-top:clamp(50px,7vw,84px)}
+#atelier,#contact{padding-top:clamp(36px,5vw,60px)}
+#realisations,#methode{padding-bottom:clamp(36px,5vw,60px)}
