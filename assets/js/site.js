@@ -149,7 +149,7 @@
   var form=document.getElementById('nform'), input=document.getElementById('ninput');
   var opened=false, greeted=false;
   var REP={
-    prix:"Quatre formules, devis ferme :\n• Essentiel — 390 €\n• Vitrine — 790 € (recommandé)\n• Signature — 1 190 €\n• Sur mesure — sur devis\nUne agence facture souvent 3 000 à 6 000 €.",
+    prix:"Quatre formules, devis ferme, payées une seule fois :\n• Essentiel — 490 €\n• Vitrine — 990 € (recommandé)\n• Signature — 1 390 €\n• Sur mesure — sur devis\nZéro abonnement ensuite : pas de WordPress, pas de maintenance imposée. Seul coût : l'hébergement, ≈ 5 €/an.",
     delai:"Les délais :\n• Essentiel — 7 jours\n• Vitrine — 10 à 14 jours\n• Signature — 3 semaines\nDevis ferme sous 48 h après l'appel.",
     methode:"Ça se passe en 4 étapes :\n1. Cadrage (30 min au téléphone)\n2. Maquette validée avant le code\n3. Développement + 2 tours de modifs\n4. Mise en ligne et remise des sources.",
     contact:"Le plus simple : un appel de 30 minutes.\n📩 contact@studionovalem.fr\n📞 +590 690 31 79 99\nOu le bouton « Demander un devis » juste au-dessus.",
@@ -386,4 +386,29 @@
   var rT; window.addEventListener('resize',function(){ clearTimeout(rT); rT=setTimeout(function(){ var wasR=running; stop(); init(); if(wasR&&!reduce) start(); },180); });
   window.addEventListener('load',init);
   if(document.readyState==='complete') init();
+})();
+
+/* ---------- compteurs de prix (montent quand la section apparait) ---------- */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.num[data-count]'));
+  if(!els.length) return;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function run(el){
+    var target=parseInt(el.getAttribute('data-count'),10)||0;
+    if(reduce){ el.textContent=target.toLocaleString('fr-FR'); return; }
+    var t0=null, dur=1100;
+    function step(now){
+      if(!t0) t0=now;
+      var p=Math.min((now-t0)/dur,1);
+      var e=1-Math.pow(1-p,4);
+      el.textContent=Math.round(target*e).toLocaleString('fr-FR');
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ run(e.target); io.unobserve(e.target); } }); },{threshold:.6});
+    els.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){ els.forEach(function(el){ if(el.textContent==='0') run(el); }); },5000);
+  } else els.forEach(run);
 })();
