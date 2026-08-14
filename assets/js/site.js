@@ -103,3 +103,22 @@
     bv.onended=end; setTimeout(end,2600);
   });
 })();
+
+/* ---------- hero : ralenti + parallaxe du panneau ---------- */
+(function(){
+  var v=document.getElementById('heroVid');
+  if(v){ v.playbackRate=0.7; }
+  var panel=document.querySelector('.hpanel');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(panel && !reduce){
+    var t=false;
+    window.addEventListener('scroll',function(){
+      if(t) return; t=true;
+      requestAnimationFrame(function(){
+        var y=Math.min(window.scrollY,900);
+        panel.style.transform='translateY('+(y*0.07)+'px)';
+        t=false;
+      });
+    },{passive:true});
+  }
+})();
