@@ -39,7 +39,7 @@
       <h1 class="herodel h2">Le web des Antilles,<br />niveau <span class="it">grande maison</span>.</h1>
       <p class="sub herodel h3">Des sites sur mesure, en code natif, pensés pour votre activité.</p>
       <div class="actions herodel h4">
-        <a class="btn" href="#contact"><span>Demander un devis</span></a>
+        <a class="btn" href="#contact" id="cta-boom"><span>Demander un devis</span></a>
         <a class="btn ghost" href="#realisations"><span>Voir mes réalisations</span></a>
       </div>
       <p class="meta herodel h4">Guadeloupe · Martinique · Saint-Martin · Saint-Barthélemy</p>
@@ -145,6 +145,21 @@
 <button class="snd off" id="snd" aria-label="Son"><span class="bars"><i></i><i></i><i></i></span> son</button>
 
 
+
+
+<div class="bub" id="bub" role="button" aria-label="Ouvrir Nova, l'assistant du studio" tabindex="0">
+  <video autoplay muted loop playsinline preload="metadata"><source src="assets/video/bubble.mp4" type="video/mp4"></video>
+  <span class="hint">Nova</span>
+</div>
+
+<div class="nova" id="nova" aria-live="polite">
+  <div class="nhead"><span class="dotg"></span><span class="nname">Nova</span><span class="nsub">l'assistant du studio</span></div>
+  <div class="msgs" id="nmsgs"></div>
+  <div class="chips" id="nchips"></div>
+  <form id="nform" autocomplete="off"><input id="ninput" type="text" placeholder="Écrire à Nova…" /><button class="send" type="submit" aria-label="Envoyer">→</button></form>
+</div>
+
+<div class="boom" id="boom"><video id="boomv" muted playsinline preload="auto"><source src="assets/video/boom.mp4" type="video/mp4"></video></div>
 
 <script src="assets/js/site.js"></script>
 <script src="assets/js/particles.js"></script>

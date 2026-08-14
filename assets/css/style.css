@@ -140,9 +140,47 @@
   .foot .cr{width:100%;font-size:12px;color:var(--soft);margin-top:12px}
 
   /* sound */
-  .snd{position:fixed;bottom:22px;right:22px;z-index:60;display:flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:999px;padding:9px 15px;cursor:pointer}
+  .snd{position:fixed;bottom:22px;left:22px;z-index:60;display:flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:999px;padding:9px 15px;cursor:pointer}
   .snd .bars{display:flex;align-items:flex-end;gap:2px;height:13px}
   .snd .bars i{width:2.5px;background:var(--ink);border-radius:2px;animation:eq 1.1s ease-in-out infinite}
   .snd .bars i:nth-child(1){height:5px}.snd .bars i:nth-child(2){height:12px;animation-delay:.2s}.snd .bars i:nth-child(3){height:8px;animation-delay:.4s}
   .snd.off .bars i{animation:none;height:4px;opacity:.5}
   @keyframes eq{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+
+
+/* ---------- Nova : bulle IA flottante ---------- */
+.bub{position:fixed;bottom:22px;right:22px;z-index:70;width:76px;height:76px;border-radius:50%;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,.7);box-shadow:0 18px 44px -18px rgba(18,22,60,.55);animation:bfloat 5.5s ease-in-out infinite;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.bub:hover{transform:scale(1.07)}
+.bub.pop{transform:scale(.86)}
+.bub video{width:100%;height:100%;object-fit:cover;display:block}
+.bub .hint{position:absolute;inset:auto 0 4px 0;text-align:center;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5);font-family:var(--fb)}
+@keyframes bfloat{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@media (prefers-reduced-motion:reduce){.bub{animation:none}}
+
+/* ---------- Nova : panneau ---------- */
+.nova{position:fixed;bottom:112px;right:22px;z-index:71;width:min(360px,calc(100vw - 32px));background:rgba(255,255,255,.82);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border:1px solid rgba(255,255,255,.8);border-radius:20px;box-shadow:0 34px 80px -34px rgba(18,22,60,.5);overflow:hidden;opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:opacity .35s var(--e),transform .35s var(--e)}
+.nova.open{opacity:1;transform:none;pointer-events:auto}
+.nova .nhead{display:flex;align-items:center;gap:9px;padding:14px 16px;border-bottom:1px solid var(--line-2)}
+.nova .dotg{width:9px;height:9px;border-radius:50%;background:#25D07A}
+.nova .nname{font-family:var(--fd);font-weight:500;font-size:15px}
+.nova .nsub{font-size:11px;color:var(--soft);margin-left:auto}
+.nova .msgs{padding:14px 14px 6px;max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px}
+.nova .m{max-width:85%;padding:9px 13px;border-radius:14px;font-size:13.5px;line-height:1.45}
+.nova .m.ai{background:#fff;border:1px solid var(--line-2);color:var(--ink-2);border-bottom-left-radius:5px;align-self:flex-start;white-space:pre-line}
+.nova .m.me{background:var(--ink);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.nova .typing{display:inline-flex;gap:4px;padding:11px 13px}
+.nova .typing i{width:5px;height:5px;border-radius:50%;background:var(--soft);animation:tp 1s ease-in-out infinite}
+.nova .typing i:nth-child(2){animation-delay:.15s}.nova .typing i:nth-child(3){animation-delay:.3s}
+@keyframes tp{0%,100%{opacity:.25;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+.nova .chips{display:flex;flex-wrap:wrap;gap:7px;padding:6px 14px 12px}
+.nova .chip{font-size:12px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink-2)}
+.nova .chip:hover{border-color:var(--ink)}
+.nova form{display:flex;gap:8px;padding:0 14px 14px}
+.nova input{flex:1;border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-family:var(--fb);font-size:13.5px;background:#fff;outline:none}
+.nova input:focus{border-color:var(--ink)}
+.nova .send{width:38px;height:38px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:15px;cursor:pointer}
+
+/* ---------- explosion de transition ---------- */
+.boom{position:fixed;inset:0;z-index:200;background:#04050c;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.boom.on{opacity:1;pointer-events:auto}
+.boom video{width:min(120vh,100vw);height:auto}
