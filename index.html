@@ -1,40 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Studio Novalem — l'atelier web des Antilles</title>
-<meta name="description" content="Studio web des Antilles françaises. Des sites codés au pixel près, sans abonnement, livrés à 100% à vous. Le niveau des grandes maisons digitales, à un prix abordable." />
-<meta name="theme-color" content="#F4F6FB" />
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Studio Novalem — l'atelier web des Antilles" />
-<meta property="og:description" content="Des sites codés au pixel près, sans abonnement. Le niveau des grandes maisons digitales, posé aux Antilles." />
-<meta property="og:locale" content="fr_FR" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" href="css/styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Novalem — aperçu du hero</title>
+<link rel="icon" href="assets/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Fraunces:ital,opsz,wght@1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="is-loading">
 
-<!-- ============ PRELOADER ============ -->
+<!-- ============ PRELOADER (se fond dans le hero) ============ -->
 <div id="preloader" aria-hidden="true">
   <div class="pl-inner">
     <svg class="pl-emblem" viewBox="0 0 48 48" fill="none">
       <circle class="pl-ring" cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.1"/>
       <path class="pl-star" d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/>
     </svg>
-    <div class="pl-word" aria-label="Novalem">
-      <span>N</span><span>O</span><span>V</span><span>A</span><span>L</span><span>E</span><span>M</span>
+    <div class="pl-word" aria-label="Studio Novalem">
+      <span>S</span><span>t</span><span>u</span><span>d</span><span>i</span><span>o</span><span>&nbsp;</span><span>N</span><span>o</span><span>v</span><span>a</span><span>l</span><span>e</span><span>m</span>
     </div>
     <div class="pl-tag">l'atelier web des Antilles</div>
   </div>
-  <div class="pl-count"><span id="plNum">0</span></div>
-  <div class="pl-line"><i></i></div>
 </div>
 
 <!-- ============ HEADER ============ -->
@@ -46,543 +35,70 @@
     </svg>
     <span class="brand-word">Novalem</span>
   </a>
-
-  <nav class="nav" aria-label="Navigation principale">
-    <a href="#realisations" data-nav>Réalisations</a>
-    <a href="#offre" data-nav>Formules</a>
-    <a href="#methode" data-nav>Méthode</a>
-    <a href="#studio" data-nav>Le studio</a>
-    <a href="#faq" data-nav>Questions</a>
+  <nav class="nav" aria-label="Navigation">
+    <a href="#">Réalisations</a>
+    <a href="#">Formules</a>
+    <a href="#">Méthode</a>
+    <a href="#">Le studio</a>
   </nav>
-
-  <div class="header-right">
-    <a href="#contact" class="btn btn-primary magnetic" data-nav-cta>
-      <span class="btn-label">Parler du projet</span>
-    </a>
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span>
-    </button>
-  </div>
+  <a href="#" class="btn btn-primary magnetic header-cta"><span class="btn-label">Parler du projet</span></a>
 </header>
 
-<!-- ============ MENU OVERLAY ============ -->
-<div class="menu" id="menu" aria-hidden="true">
-  <div class="menu-grid">
-    <nav class="menu-nav" aria-label="Menu">
-      <a href="#realisations" data-menu-link><em>01</em>Réalisations</a>
-      <a href="#offre" data-menu-link><em>02</em>Formules</a>
-      <a href="#methode" data-menu-link><em>03</em>Méthode</a>
-      <a href="#studio" data-menu-link><em>04</em>Le studio</a>
-      <a href="#faq" data-menu-link><em>05</em>Questions</a>
-      <a href="#contact" data-menu-link><em>06</em>Contact</a>
-    </nav>
-    <div class="menu-side">
-      <div class="menu-side-block">
-        <span class="micro">Écrire</span>
-        <a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr</a>
-      </div>
-      <div class="menu-side-block">
-        <span class="micro">Appeler</span>
-        <a href="tel:+590690317999">+590 690 31 79 99</a>
-      </div>
-      <div class="menu-side-block">
-        <span class="micro">Suivre</span>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
-      </div>
-      <p class="menu-note">Basé en Guadeloupe. Disponible sur les quatre îles et partout à distance.</p>
-    </div>
-  </div>
-</div>
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-stage">
 
-<main id="top">
-
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="hero">
-    <div class="hero-bloom" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <div class="hero-copy">
-        <p class="eyebrow reveal-line"><span>Studio web · Antilles françaises</span></p>
-        <h1 class="hero-title">
-          <span class="line"><span class="w">Le</span> <span class="w">meilleur</span> <span class="w">du</span> <span class="w">web,</span></span>
-          <span class="line"><span class="w serif">enfin</span> <span class="w serif">abordable.</span></span>
-        </h1>
-        <p class="hero-sub reveal-line"><span>Des sites codés au pixel près, pensés pour convertir. Le niveau des grandes maisons digitales, posé aux Antilles.</span></p>
-        <div class="hero-cta">
-          <a href="#realisations" class="btn btn-ghost magnetic"><span class="btn-label">Voir les réalisations</span></a>
-          <a href="#contact" class="btn btn-primary magnetic"><span class="btn-label">Parler du projet</span><span class="btn-arrow">→</span></a>
-        </div>
-        <ul class="hero-trust">
-          <li>Code natif</li>
-          <li>Zéro abonnement</li>
-          <li>SAV à vie</li>
-        </ul>
-      </div>
-
+    <div class="hero-frame" id="heroFrame">
       <div class="hero-media" id="heroMedia">
-        <div class="hero-frame">
-          <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="video/hero-poster.jpg">
-            <source src="video/hero.mp4" type="video/mp4" data-desktop />
-          </video>
-          <div class="hero-frame-grain" aria-hidden="true"></div>
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            Antilles françaises
-          </div>
-          <div class="hero-frame-caption">
-            <span class="micro">Réalisation</span>
-            <span>ifc-guadeloupe.fr</span>
-          </div>
-        </div>
+        <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/hero-poster.jpg">
+          <source src="video/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-veil" id="heroVeil"></div>
+      <div class="hero-card-label" id="heroCardLabel">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.6"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg>
+        <span>Studio Novalem, l'atelier en mouvement</span>
       </div>
     </div>
 
-    <div class="hero-marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Sites vitrines</span><i></i><span>Boutiques</span><i></i><span>Référencement</span><i></i><span>Prise de rendez-vous</span><i></i><span>Refonte</span><i></i>
-        <span>Sites vitrines</span><i></i><span>Boutiques</span><i></i><span>Référencement</span><i></i><span>Prise de rendez-vous</span><i></i><span>Refonte</span><i></i>
+    <div class="hero-copy" id="heroCopy">
+      <p class="eyebrow reveal-line"><span>Studio web · Antilles françaises</span></p>
+      <h1 class="hero-title">
+        <span class="line"><span class="w">Le</span> <span class="w">meilleur</span> <span class="w">du</span> <span class="w">web,</span></span>
+        <span class="line"><span class="w serif">enfin</span> <span class="w serif">abordable.</span></span>
+      </h1>
+      <p class="hero-sub reveal-line"><span>Des sites codés main, augmentés à l'IA, pensés au pixel près. Le prestige d'une agence, sans son tarif ni ses abonnements.</span></p>
+      <div class="hero-cta" id="heroCta">
+        <a href="#" class="btn btn-primary magnetic"><span class="btn-label">Parler du projet</span><span class="btn-arrow" aria-hidden="true">→</span></a>
+        <a href="#" class="btn btn-ghost">Voir les réalisations</a>
       </div>
+      <ul class="hero-trust" id="heroTrust">
+        <li>4 îles</li>
+        <li>Zéro abonnement</li>
+        <li>En ligne sous 2 semaines</li>
+      </ul>
     </div>
-  </section>
 
-  <!-- ============ MANIFESTE ============ -->
-  <section class="manifeste" id="manifeste">
-    <div class="wrap">
-      <p class="manifeste-line" data-words>
-        Ici, rien n'est laissé au hasard. Chaque pixel est une décision, chaque animation une intention. Un site n'est pas une brochure. C'est votre <em>première impression</em>, et elle doit être parfaite.
-      </p>
-    </div>
-  </section>
+    <button class="hero-cue" id="heroCue" aria-label="Défiler vers le bas">
+      <span class="hero-cue-txt">Défiler</span>
+      <span class="hero-cue-line"><i></i></span>
+    </button>
 
-  <!-- ============ REALISATIONS ============ -->
-  <section class="section realisations" id="realisations">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Réalisations</p>
-        <h2 class="section-title reveal">Des sites qui travaillent<br>pour ceux qui les portent.</h2>
-      </header>
-
-      <div class="works">
-        <!-- Flagship -->
-        <article class="work work--lead reveal-card">
-          <a class="work-link" href="https://ifc-guadeloupe.fr" target="_blank" rel="noopener">
-            <div class="work-shot work-shot--ifc" aria-hidden="true">
-              <div class="shot-chrome"><i></i><i></i><i></i><b>ifc-guadeloupe.fr</b></div>
-              <div class="shot-body">
-                <span class="shot-kicker">Glacier artisanal · Sainte-Anne</span>
-                <span class="shot-title">Ice Fruits Chocolate</span>
-                <span class="shot-cta">Commander une glace</span>
-              </div>
-            </div>
-          </a>
-          <div class="work-meta">
-            <div>
-              <span class="work-tag">Vitrine · Site phare</span>
-              <h3 class="work-name">IFC — Ice Fruits Chocolate</h3>
-              <p class="work-desc">Une roulotte de sorbets artisanaux devenue une vitrine gourmande. Menu, ambiance, localisation, le tout pensé pour donner envie dès le premier écran.</p>
-            </div>
-            <a class="work-cta" href="https://ifc-guadeloupe.fr" target="_blank" rel="noopener">Voir le site <span>→</span></a>
-          </div>
-        </article>
-
-        <div class="works-grid">
-          <article class="work reveal-card">
-            <a class="work-link" href="https://love-dogs.fr" target="_blank" rel="noopener">
-              <div class="work-shot work-shot--dog" aria-hidden="true">
-                <div class="shot-chrome"><i></i><i></i><i></i><b>love-dogs.fr</b></div>
-                <div class="shot-body">
-                  <span class="shot-kicker">Services canins · Guadeloupe</span>
-                  <span class="shot-title">Love Dog's</span>
-                  <span class="shot-cta">Réserver une garde</span>
-                </div>
-              </div>
-            </a>
-            <div class="work-meta">
-              <div>
-                <span class="work-tag">Vitrine · Simulateur</span>
-                <h3 class="work-name">Love Dog's</h3>
-                <p class="work-desc">Éducation, dog sitting, nutrition. Un simulateur de devis guide le visiteur en quelques clics.</p>
-              </div>
-              <a class="work-cta" href="https://love-dogs.fr" target="_blank" rel="noopener">Voir le site <span>→</span></a>
-            </div>
-          </article>
-
-          <article class="work reveal-card">
-            <a class="work-link" href="https://fontaine-guadeloupe.fr" target="_blank" rel="noopener">
-              <div class="work-shot work-shot--eau" aria-hidden="true">
-                <div class="shot-chrome"><i></i><i></i><i></i><b>fontaine-guadeloupe.fr</b></div>
-                <div class="shot-body">
-                  <span class="shot-kicker">Fontaines à eau · Réseau</span>
-                  <span class="shot-title">Unik'eau</span>
-                  <span class="shot-cta">Demander un devis</span>
-                </div>
-              </div>
-            </a>
-            <div class="work-meta">
-              <div>
-                <span class="work-tag">One page · Pro</span>
-                <h3 class="work-name">Unik'eau</h3>
-                <p class="work-desc">Fontaines à eau sur réseau pour les entreprises. Modèles, tarifs et contact sur une page nette.</p>
-              </div>
-              <a class="work-cta" href="https://fontaine-guadeloupe.fr" target="_blank" rel="noopener">Voir le site <span>→</span></a>
-            </div>
-          </article>
-
-          <article class="work reveal-card">
-            <div class="work-shot work-shot--moto work-shot--soon" aria-hidden="true">
-              <div class="shot-chrome"><i></i><i></i><i></i><b>focus-moto</b></div>
-              <div class="shot-body">
-                <span class="shot-kicker">Concession moto · Guadeloupe</span>
-                <span class="shot-title">Focus Moto</span>
-                <span class="shot-cta">Bientôt en ligne</span>
-              </div>
-            </div>
-            <div class="work-meta">
-              <div>
-                <span class="work-tag">En cours</span>
-                <h3 class="work-name">Focus Moto</h3>
-                <p class="work-desc">Motos, scooters et quads. Un catalogue clair et une prise de contact directe, en préparation.</p>
-              </div>
-              <span class="work-cta work-cta--muted">En production</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SEPARATEUR ============ -->
-  <div class="sep" aria-hidden="true">
-    <span class="sep-line sep-line--l"></span>
-    <svg class="sep-star" viewBox="0 0 24 24"><path d="M12 1C12 8 16 12 23 12C16 12 12 16 12 23C12 16 8 12 1 12C8 12 12 8 12 1Z" fill="currentColor"/></svg>
-    <span class="sep-line sep-line--r"></span>
   </div>
+</section>
 
-  <!-- ============ OFFRE ============ -->
-  <section class="section offre" id="offre">
-    <div class="wrap">
-      <header class="section-head section-head--center">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Formules</p>
-        <h2 class="section-title reveal">Un prix clair. Sans surprise.</h2>
-        <p class="section-lead reveal">Trois formules, un prix affiché, et aucun abonnement caché. On ajuste au budget, jamais l'inverse.</p>
-      </header>
-
-      <div class="plans">
-        <article class="plan reveal-card">
-          <header class="plan-head">
-            <h3 class="plan-name">Essentiel</h3>
-            <p class="plan-for">Une présence nette, une page.</p>
-          </header>
-          <div class="plan-price"><span class="cur">€</span><span class="num" data-count="490">0</span></div>
-          <ul class="plan-list">
-            <li>Site une page sur mesure</li>
-            <li>Design et rédaction guidés</li>
-            <li>Formulaire de contact</li>
-            <li>Optimisé mobile et Google</li>
-          </ul>
-          <a href="#contact" class="btn btn-line magnetic"><span class="btn-label">Choisir Essentiel</span></a>
-        </article>
-
-        <article class="plan plan--reco reveal-card">
-          <span class="plan-flag">Le plus demandé</span>
-          <span class="plan-ring" aria-hidden="true"></span>
-          <header class="plan-head">
-            <h3 class="plan-name">Vitrine</h3>
-            <p class="plan-for">Plusieurs pages pour tout dire.</p>
-          </header>
-          <div class="plan-price"><span class="cur">€</span><span class="num" data-count="990">0</span></div>
-          <ul class="plan-list">
-            <li>Jusqu'à 5 pages et arborescence</li>
-            <li>Référencement local soigné</li>
-            <li>Formulaires et prise de contact</li>
-            <li>Animations et détails travaillés</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary magnetic"><span class="btn-label">Choisir Vitrine</span></a>
-        </article>
-
-        <article class="plan reveal-card">
-          <header class="plan-head">
-            <h3 class="plan-name">Signature</h3>
-            <p class="plan-for">Le grand jeu, effet garanti.</p>
-          </header>
-          <div class="plan-price"><span class="cur">€</span><span class="num" data-count="1390">0</span></div>
-          <ul class="plan-list">
-            <li>Site multipage haut de gamme</li>
-            <li>Animations et interactions poussées</li>
-            <li>Blog et référencement avancé</li>
-            <li>Accompagnement rapproché</li>
-          </ul>
-          <a href="#contact" class="btn btn-line magnetic"><span class="btn-label">Choisir Signature</span></a>
-        </article>
-      </div>
-
-      <a href="#contact" class="plan-custom reveal">
-        <div>
-          <span class="work-tag">Sur mesure</span>
-          <p>Boutique en ligne, espace client, outil métier ? On chiffre votre idée après un premier échange.</p>
-        </div>
-        <span class="work-cta">Décrire mon projet <span>→</span></span>
-      </a>
-
-      <!-- Ce que vous ne paierez jamais -->
-      <div class="never reveal-card">
-        <div class="never-head">
-          <p class="eyebrow eyebrow--light"><span class="eyebrow-star"></span>Le calcul qu'on vous cache ailleurs</p>
-          <h3 class="never-title">Ce que vous ne paierez <em>jamais</em>.</h3>
-        </div>
-        <div class="never-body">
-          <ul class="never-list">
-            <li><span class="never-was">≈ 300 €/an</span><span class="never-what">Abonnement WordPress et plugins</span><span class="never-now">0 €</span></li>
-            <li><span class="never-was">≈ 40 €/mois</span><span class="never-what">Maintenance imposée</span><span class="never-now">0 €</span></li>
-            <li><span class="never-was">≈ 200 €</span><span class="never-what">Thème payant obligatoire</span><span class="never-now">0 €</span></li>
-          </ul>
-          <div class="never-total">
-            <div>
-              <span class="never-total-label">Économie moyenne</span>
-              <span class="never-total-num">≈ 600 €<em>/an</em></span>
-            </div>
-            <p class="never-note">Un site codé n'a pas d'abonnement. Le seul coût qui reste, c'est <strong>environ 5 € par an</strong> d'hébergement, à votre nom. Une agence facture le même travail 3 000 à 6 000 €.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SEPARATEUR ============ -->
-  <div class="sep" aria-hidden="true">
-    <span class="sep-line sep-line--l"></span>
-    <svg class="sep-star" viewBox="0 0 24 24"><path d="M12 1C12 8 16 12 23 12C16 12 12 16 12 23C12 16 8 12 1 12C8 12 12 8 12 1Z" fill="currentColor"/></svg>
-    <span class="sep-line sep-line--r"></span>
+<!-- ============ SECTION SUIVANTE (pour voir l'atterrissage) ============ -->
+<section class="after">
+  <div class="wrap">
+    <p class="after-eyebrow">Le manifeste</p>
+    <p class="after-line" id="afterLine">
+      Ici, rien n'est laissé au hasard. Chaque pixel est une décision, chaque animation une intention. Un site n'est pas une brochure. C'est votre <em>première impression</em>.
+    </p>
   </div>
+</section>
 
-  <!-- ============ METHODE ============ -->
-  <section class="section methode" id="methode">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Méthode</p>
-        <h2 class="section-title reveal">Simple, du premier échange<br>à la mise en ligne.</h2>
-      </header>
-
-      <ol class="steps" id="steps">
-        <div class="steps-rail" aria-hidden="true"><i id="stepsProgress"></i></div>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">01</span>
-          <h3 class="step-name">On échange</h3>
-          <p class="step-desc">Un appel ou un café. On cadre vos besoins, vos pages et votre contenu. Zéro jargon.</p>
-        </li>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">02</span>
-          <h3 class="step-name">Je conçois</h3>
-          <p class="step-desc">Je construis une première version et je vous envoie un lien en ligne pour la voir vivre.</p>
-        </li>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">03</span>
-          <h3 class="step-name">On affine</h3>
-          <p class="step-desc">On se voit, vous me dites ce qui bouge. J'ajuste jusqu'à ce que ce soit exactement ça.</p>
-        </li>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">04</span>
-          <h3 class="step-name">En ligne</h3>
-          <p class="step-desc">Mise en ligne, remise des fichiers, accès à votre nom. Le site est à 100% à vous.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ SEPARATEUR ============ -->
-  <div class="sep" aria-hidden="true">
-    <span class="sep-line sep-line--l"></span>
-    <svg class="sep-star" viewBox="0 0 24 24"><path d="M12 1C12 8 16 12 23 12C16 12 12 16 12 23C12 16 8 12 1 12C8 12 12 8 12 1Z" fill="currentColor"/></svg>
-    <span class="sep-line sep-line--r"></span>
-  </div>
-
-  <!-- ============ STUDIO ============ -->
-  <section class="section studio" id="studio">
-    <div class="wrap studio-grid">
-      <div class="studio-copy">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Le studio</p>
-        <h2 class="section-title reveal">Derrière Studio Novalem,<br>il y a <em>Louis</em>.</h2>
-        <p class="studio-text reveal">21 ans, étudiant entrepreneur, passionné de web et de marketing. J'ai lancé Studio Novalem avec une idée simple : offrir aux entreprises des îles des sites du niveau des grandes maisons digitales, sans le prix des grandes maisons digitales.</p>
-        <p class="studio-text reveal">Pas d'usine, pas de sous-traitance. Je code chaque site à la main, je reste joignable, et je m'investis comme si c'était le mien. Novalem, c'est <em>Nova</em>, l'étoile qu'on vise, et l'envie de faire les choses bien. Viser haut, et aimer ça.</p>
-        <div class="studio-sign reveal">
-          <span class="studio-sign-name">Louis</span>
-          <span class="studio-sign-role">Fondateur · Studio Novalem</span>
-        </div>
-      </div>
-      <div class="studio-visual reveal">
-        <canvas id="constellation" class="constellation"></canvas>
-        <div class="studio-visual-frame" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FAQ ============ -->
-  <section class="section faq" id="faq">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Questions</p>
-        <h2 class="section-title reveal">Ce qu'on nous demande<br>le plus souvent.</h2>
-      </header>
-
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">01</span><span class="faq-q">Combien coûte un site ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Les sites démarrent à 490 € pour une page, et la plupart se situent autour de 990 € pour une vitrine complète. Pour une boutique ou un outil sur mesure, on chiffre après un premier échange. Un prix clair, affiché, sans surprise.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">02</span><span class="faq-q">Quels sont les délais ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Comptez deux à quatre semaines selon l'ampleur du projet. Vous voyez une première version en ligne très vite, puis on affine ensemble jusqu'à la mise en ligne.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">03</span><span class="faq-q">Y a-t-il un abonnement à payer ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Non. Un site codé n'a pas d'abonnement mensuel, contrairement à un WordPress. Le seul coût récurrent, c'est environ 5 € par an d'hébergement, à votre nom. Rien d'autre.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">04</span><span class="faq-q">Le site m'appartient vraiment ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>À 100%. Je vous remets tous les fichiers du site, et les accès à l'hébergement et au nom de domaine sont créés à votre nom. Vous êtes propriétaire, entièrement et pour toujours.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">05</span><span class="faq-q">Et après la mise en ligne ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Le SAV est gratuit à vie sur tout bug venant de mon code. Pour ajouter une page ou faire évoluer le site plus tard, c'est un devis simple, à votre rythme. Aucune maintenance imposée.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">06</span><span class="faq-q">Vous travaillez où ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Basé en Guadeloupe, je travaille sur les quatre îles des Antilles françaises, Guadeloupe, Martinique, Saint-Martin et Saint-Barthélemy, et partout ailleurs à distance.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section class="section contact" id="contact">
-    <canvas id="sky" class="sky" aria-hidden="true"></canvas>
-    <div class="wrap contact-grid">
-      <div class="contact-copy">
-        <p class="eyebrow eyebrow--onDark"><span class="eyebrow-star"></span>Contact</p>
-        <h2 class="contact-title">On vise la lune ?</h2>
-        <p class="contact-lead">Décrivez votre projet en deux lignes. Je réponds sous 24 heures, avec un premier avis honnête et une idée de prix.</p>
-        <div class="contact-direct">
-          <a href="mailto:contact@studionovalem.fr" class="contact-direct-item">
-            <span class="micro">Écrire</span>
-            <span>contact@studionovalem.fr</span>
-          </a>
-          <a href="tel:+590690317999" class="contact-direct-item">
-            <span class="micro">Appeler</span>
-            <span>+590 690 31 79 99</span>
-          </a>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm" novalidate>
-        <div class="field">
-          <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder=" " />
-          <label for="cf-name">Votre nom</label>
-        </div>
-        <div class="field">
-          <input type="text" id="cf-company" name="company" autocomplete="organization" placeholder=" " />
-          <label for="cf-company">Votre entreprise</label>
-        </div>
-        <div class="field">
-          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder=" " />
-          <label for="cf-email">Votre email</label>
-        </div>
-        <div class="field">
-          <textarea id="cf-msg" name="message" rows="4" required placeholder=" "></textarea>
-          <label for="cf-msg">Votre projet en quelques mots</label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block magnetic">
-          <span class="btn-label">Envoyer</span><span class="btn-arrow">→</span>
-        </button>
-        <p class="form-hint" id="formHint">Réponse sous 24 h. Aucun engagement.</p>
-      </form>
-    </div>
-  </section>
-
-</main>
-
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a class="brand brand--footer" href="#top" aria-label="Studio Novalem">
-        <svg class="brand-emblem" viewBox="0 0 48 48" fill="none">
-          <circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.4"/>
-          <path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/>
-        </svg>
-        <span class="brand-word">Novalem</span>
-      </a>
-      <p class="footer-tag"><em>l'atelier web des Antilles</em></p>
-    </div>
-    <nav class="footer-nav" aria-label="Pied de page">
-      <a href="#realisations">Réalisations</a>
-      <a href="#offre">Formules</a>
-      <a href="#methode">Méthode</a>
-      <a href="#studio">Le studio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="footer-contact">
-      <a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr</a>
-      <a href="tel:+590690317999">+590 690 31 79 99</a>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
-      </div>
-    </div>
-  </div>
-  <div class="wrap footer-base">
-    <span>Studio web · Antilles françaises · EST. 2025</span>
-    <span>© <span id="year"></span> Studio Novalem</span>
-  </div>
-</footer>
-
-<!-- ============ NOVA ORB + ASSISTANT ============ -->
-<button class="nova-orb" id="novaOrb" aria-label="Parler à Nova, l'assistant du studio">
-  <canvas id="novaCanvas" width="140" height="140"></canvas>
-  <span class="nova-orb-hint">Nova</span>
-</button>
-
-<aside class="nova-panel" id="novaPanel" aria-hidden="true" aria-label="Assistant Nova">
-  <header class="nova-head">
-    <div class="nova-head-id">
-      <span class="nova-head-dot"></span>
-      <div>
-        <strong>Nova</strong>
-        <span>Assistant du studio</span>
-      </div>
-    </div>
-    <button class="nova-close" id="novaClose" aria-label="Fermer">×</button>
-  </header>
-  <div class="nova-log" id="novaLog"></div>
-  <div class="nova-chips" id="novaChips">
-    <button data-q="formules">Les formules</button>
-    <button data-q="delais">Les délais</button>
-    <button data-q="abonnement">Les abonnements</button>
-    <button data-q="methode">La méthode</button>
-    <button data-q="contact">Vous joindre</button>
-  </div>
-  <form class="nova-input" id="novaForm">
-    <input type="text" id="novaText" placeholder="Écrire à Nova…" autocomplete="off" />
-    <button type="submit" aria-label="Envoyer">→</button>
-  </form>
-</aside>
-
-<!-- ============ SOUND TOGGLE ============ -->
-<button class="sound-toggle" id="soundToggle" aria-pressed="false" aria-label="Activer le son de l'interface">
-  <span class="sound-bars"><i></i><i></i><i></i><i></i></span>
-  <span class="sound-label">Son</span>
-</button>
-
-<!-- ============ SCRIPTS ============ -->
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/sound.js"></script>
-<script src="js/nova-orb.js"></script>
-<script src="js/sky.js"></script>
-<script src="js/constellation.js"></script>
-<script src="js/main.js"></script>
+<script src="js/hero.js"></script>
 </body>
 </html>
