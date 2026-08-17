@@ -52,4 +52,4 @@ assets/               emblème + favicon (SVG)
 video/                boucles hero + poster
 ```
 
-Contact : contact@studionovalem.fr — +590 690 31 79 99
+Contact : contact@studionovalem.fr — +590 691 25 34 49

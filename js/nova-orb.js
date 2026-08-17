@@ -157,7 +157,7 @@
     methode: "Quatre étapes : on échange, je conçois une première version en ligne, on affine, puis mise en ligne et remise des fichiers. Le site est <strong>100 % à vous</strong>.",
     proprio: "Le site vous appartient entièrement. Je remets tous les fichiers et les accès sont créés à votre nom. Propriété totale, pour toujours.",
     zone: "Basé en Guadeloupe, je travaille sur les quatre îles des Antilles françaises et partout à distance.",
-    contact: "Avec plaisir. Écrivez à <a href='mailto:contact@studionovalem.fr'>contact@studionovalem.fr</a> ou appelez le <a href='tel:+590690317999'>+590 690 31 79 99</a>. Réponse sous 24 h.",
+    contact: "Avec plaisir. Écrivez à <a href='mailto:contact@studionovalem.fr'>contact@studionovalem.fr</a> ou appelez le <a href='tel:+590691253449'>+590 691 25 34 49</a>. Réponse sous 24 h.",
     default: "Bonne question. Le plus simple, c'est d'en parler directement : <a href='mailto:contact@studionovalem.fr'>contact@studionovalem.fr</a>. En attendant, je peux détailler les formules, les délais ou la méthode."
   };
 
@@ -204,8 +204,6 @@
     function open() {
       panel.classList.add('open');
       panel.setAttribute('aria-hidden', 'false');
-      orb.style.opacity = '0';
-      orb.style.pointerEvents = 'none';
       if (!greeted) { push(answers.hello, 'bot'); greeted = true; }
       if (window.NovaSound) window.NovaSound.play('open');
       setTimeout(function () { if (input) input.focus(); }, 420);

@@ -1,145 +1,130 @@
-/* =========================================================
-   Studio Novalem — Chantier B (séquence prix)
-   Un prix d'agence qui se dégonfle vers le nôtre, au clic.
-   ========================================================= */
+/* Le prix : le tarif d'agence se dégonfle vers 990 €, puis un comparateur
+   mensuel montre le point de remboursement face à une agence et au no-code. */
 (function () {
   'use strict';
-
-  document.documentElement.classList.add('has-js');
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var gsap = window.gsap;
-  var hasGSAP = !!gsap;
-
   var BEFORE = 4500, AFTER = 990;
   var CAP_BEFORE = "Le tarif moyen d'une agence pour ce site.";
   var CAP_AFTER = "Formule Vitrine. Tout compris. Une fois.";
-  var currentY = 5, revealed = false;
-
-  function fmt(n) { return n.toLocaleString('fr-FR'); }
-  function THEM(y) { return 4500 + 480 * y; }   // agence + maintenance ~40/mois
-  function US(y) { return 990 + 25 * y; }        // une fois + hébergement 25/an
-
-  var $ = function (id) { return document.getElementById(id); };
-  var rp, numEl, amountEl, caption, chipsEl, trigger, after, glow, shock;
-  var themB, usB, themFill, usFill, segBtns, replay;
+  var fmt = function (n) { return Math.round(n).toLocaleString('fr-FR'); };
+  var el = {};
 
   function ready(fn) { document.readyState !== 'loading' ? fn() : document.addEventListener('DOMContentLoaded', fn); }
-  ready(boot);
+  ready(init);
 
-  function boot() {
-    rp = $('rp'); numEl = $('rpNum'); amountEl = $('rpAmount'); caption = $('rpCaption');
-    chipsEl = $('rpChips'); trigger = $('rpTrigger'); after = $('rpAfter');
-    glow = $('rpGlow'); shock = $('rpShock');
-    themB = $('rpThem'); usB = $('rpUs'); themFill = $('rpThemFill'); usFill = $('rpUsFill');
-    segBtns = Array.prototype.slice.call(document.querySelectorAll('#rpSeg button'));
-    replay = $('rpReplay');
+  function init() {
+    var rp = document.getElementById('rp');
+    if (!rp) return;
+    el.rp = rp;
+    el.num = document.getElementById('rpNum');
+    el.cap = document.getElementById('rpCaption');
+    el.amount = document.getElementById('rpAmount');
+    el.chips = document.getElementById('rpChips');
+    el.trigger = document.getElementById('rpTrigger');
+    el.after = document.getElementById('rpAfter');
+    el.glow = document.getElementById('rpGlow');
+    el.shock = document.getElementById('rpShock');
+    el.seg = document.getElementById('rpSeg');
+    el.us = document.getElementById('rpUs'); el.wp = document.getElementById('rpWp'); el.nc = document.getElementById('rpNc');
+    el.usf = document.getElementById('rpUsFill'); el.wpf = document.getElementById('rpWpFill'); el.ncf = document.getElementById('rpNcFill');
+    el.paid = document.getElementById('rpPaid');
+    el.replay = document.getElementById('rpReplay');
 
-    if (reduce || !hasGSAP) {
-      // repli : on montre directement le prix honnête et la comparaison
-      document.documentElement.classList.remove('has-js');
-      setYears(5, false);
-      return;
-    }
+    if (reduce || !gsap) { showFinal(); return; }
 
-    wire();
     reset();
-    gsap.from('.rp-inner', { opacity: 0, y: 24, duration: 0.8, ease: 'power3.out' });
+    el.trigger.addEventListener('click', reveal);
+    if (el.replay) el.replay.addEventListener('click', reset);
+    if (el.seg) el.seg.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () { setBreakeven(parseInt(b.dataset.m, 10), true); });
+    });
+    gsap.from('.rp-inner', { opacity: 0, y: 26, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: rp, start: 'top 80%' } });
   }
 
-  function wire() {
-    if (trigger) trigger.addEventListener('click', reveal);
-    if (replay) replay.addEventListener('click', reset);
-    segBtns.forEach(function (b) {
-      b.addEventListener('click', function () { setYears(parseInt(b.getAttribute('data-y'), 10), true); });
-    });
+  function showFinal() {
+    el.rp.setAttribute('data-state', 'after');
+    el.num.textContent = fmt(AFTER);
+    el.cap.textContent = CAP_AFTER;
+    el.amount.classList.add('is-value');
+    el.chips.style.opacity = '0';
+    el.trigger.style.display = 'none';
+    el.after.style.height = 'auto'; el.after.style.opacity = '1'; el.after.style.overflow = 'visible';
+    setBreakeven(36, false);
   }
 
   function reset() {
-    revealed = false;
-    rp.setAttribute('data-state', 'before');
-    numEl.textContent = fmt(BEFORE);
-    caption.textContent = CAP_BEFORE;
-    amountEl.classList.remove('is-value');
-    gsap.set(amountEl, { clearProps: 'transform' });
-    gsap.set(glow, { opacity: 0, scale: 0.6 });
-    gsap.set(shock, { opacity: 0, scale: 0.2 });
-
-    var chips = Array.prototype.slice.call(chipsEl.querySelectorAll('li'));
-    chips.forEach(function (li) { li.classList.remove('struck'); });
-    gsap.set(chipsEl, { height: 'auto', marginTop: '' });
-    gsap.set(chips, { opacity: 1, clearProps: 'transform' });
-
-    trigger.style.display = '';
-    trigger.disabled = false;
-    gsap.set(trigger, { opacity: 1, clearProps: 'transform' });
-
-    gsap.set(after, { height: 0, opacity: 0, overflow: 'hidden' });
+    el.rp.setAttribute('data-state', 'before');
+    el.num.textContent = fmt(BEFORE);
+    el.cap.textContent = CAP_BEFORE; el.cap.style.opacity = '1';
+    el.amount.classList.remove('is-value');
+    gsap.set(el.chips, { opacity: 1 });
+    gsap.set(el.chips.querySelectorAll('li'), { opacity: 1, x: 0 });
+    el.chips.querySelectorAll('li').forEach(function (li) { li.classList.remove('struck'); });
+    gsap.set(el.trigger, { opacity: 1, y: 0, pointerEvents: 'auto', display: 'inline-flex' });
+    gsap.set(el.after, { height: 0, opacity: 0, overflow: 'hidden' });
+    gsap.set(el.glow, { opacity: 0 }); gsap.set(el.shock, { opacity: 0, scale: 0.2 });
+    el.usf.style.width = '0'; el.wpf.style.width = '0'; el.ncf.style.width = '0';
+    markSeg(36);
   }
 
   function reveal() {
-    if (revealed) return; revealed = true;
-    trigger.disabled = true;
-    rp.setAttribute('data-state', 'after');
-
-    var chips = Array.prototype.slice.call(chipsEl.querySelectorAll('li'));
-    var tl = gsap.timeline();
-
-    // trigger sort
-    tl.to(trigger, { opacity: 0, y: -8, scale: 0.96, duration: 0.3, ease: 'power2.in',
-      onComplete: function () { trigger.style.display = 'none'; } }, 0);
-
-    // chips : barrées puis envolées
-    chips.forEach(function (li, i) { tl.add(function () { li.classList.add('struck'); }, 0.15 + i * 0.08); });
-    tl.to(chips, {
-      opacity: 0,
-      y: function () { return -30 - Math.random() * 44; },
-      x: function () { return (Math.random() - 0.5) * 130; },
-      rotate: function () { return (Math.random() - 0.5) * 22; },
-      duration: 0.5, stagger: 0.06, ease: 'power2.in'
-    }, 0.55);
-    tl.to(chipsEl, { height: 0, marginTop: 0, duration: 0.4, ease: 'power2.inOut' }, 0.95);
-
-    // le nombre se dégonfle
+    if (el.rp.getAttribute('data-state') === 'after') return;
+    el.rp.setAttribute('data-state', 'after');
+    gsap.to(el.trigger, { opacity: 0, y: 14, duration: 0.4, ease: 'power2.out', pointerEvents: 'none' });
+    var lis = el.chips.querySelectorAll('li');
+    lis.forEach(function (li) { li.classList.add('struck'); });
+    gsap.to(lis, { opacity: 0, x: 26, duration: 0.5, stagger: 0.06, ease: 'power2.in', delay: 0.2 });
     var o = { v: BEFORE };
-    tl.to(o, { v: AFTER, duration: 1.1, ease: 'power2.out',
-      onUpdate: function () { numEl.textContent = fmt(Math.round(o.v)); } }, 0.35);
-
-    // caption crossfade
-    tl.to(caption, { opacity: 0, duration: 0.25, ease: 'power1.in',
-      onComplete: function () { caption.textContent = CAP_AFTER; } }, 1.0);
-    tl.to(caption, { opacity: 1, duration: 0.4, ease: 'power2.out' }, 1.42);
-
-    // impact
-    tl.add(function () { amountEl.classList.add('is-value'); }, 1.4);
-    tl.to(amountEl, { keyframes: [
-      { scale: 1.09, duration: 0.16, ease: 'power2.out' },
-      { scale: 1, duration: 0.55, ease: 'elastic.out(1,0.5)' }
-    ] }, 1.4);
-    tl.fromTo(shock, { scale: 0.2, opacity: 0.75 }, { scale: 3, opacity: 0, duration: 0.8, ease: 'power2.out' }, 1.42);
-    tl.to(glow, { opacity: 1, scale: 1, duration: 1, ease: 'power2.out' }, 1.4);
-
-    // bloc après
-    tl.to(after, { height: 'auto', opacity: 1, duration: 0.6, ease: 'power3.out' }, 1.6);
-    tl.add(function () { gsap.set(after, { height: 'auto' }); setYears(currentY, true); }, 2.2);
+    gsap.to(o, { v: AFTER, duration: 1.15, ease: 'power3.inOut', onUpdate: function () { el.num.textContent = fmt(o.v); } });
+    gsap.to(el.cap, { opacity: 0, duration: 0.25, onComplete: function () { el.cap.textContent = CAP_AFTER; gsap.to(el.cap, { opacity: 1, duration: 0.4 }); } });
+    gsap.timeline({ delay: 0.9 })
+      .to(el.amount, { scale: 1.08, duration: 0.28, ease: 'back.out(3)' })
+      .to(el.amount, { scale: 1, duration: 0.5, ease: 'power2.out' })
+      .add(function () { el.amount.classList.add('is-value'); }, 0)
+      .fromTo(el.shock, { opacity: 0.5, scale: 0.2 }, { opacity: 0, scale: 3, duration: 0.9, ease: 'power2.out' }, 0)
+      .to(el.glow, { opacity: 1, duration: 0.6 }, 0);
+    openAfter();
+    setBreakeven(36, true);
   }
 
-  function setYears(y, animate) {
-    currentY = y;
-    var them = THEM(y), us = US(y);
-    if (themB) themB.textContent = fmt(them) + ' €';
-    if (usB) usB.textContent = fmt(us) + ' €';
-    var usPct = Math.max(4, Math.round(us / them * 100));
-    if (animate && hasGSAP) {
-      gsap.to(themFill, { width: '100%', duration: 0.9, ease: 'power3.out' });
-      gsap.to(usFill, { width: usPct + '%', duration: 1.1, ease: 'power3.out' });
-    } else {
-      if (themFill) themFill.style.width = '100%';
-      if (usFill) usFill.style.width = usPct + '%';
-    }
-    segBtns.forEach(function (b) {
-      var on = parseInt(b.getAttribute('data-y'), 10) === y;
+  function openAfter() {
+    gsap.set(el.after, { height: 'auto' });
+    var h = el.after.offsetHeight;
+    gsap.fromTo(el.after, { height: 0, opacity: 0 }, {
+      height: h, opacity: 1, duration: 0.7, ease: 'power3.out', delay: 0.5,
+      onComplete: function () { el.after.style.height = 'auto'; el.after.style.overflow = 'visible'; }
+    });
+  }
+
+  function nov(m) { return AFTER + 2 * m; }
+  function wp(m) { return 50 * m; }
+  function nc(m) { return 39 * m; }
+
+  function markSeg(m) {
+    if (!el.seg) return;
+    el.seg.querySelectorAll('button').forEach(function (b) {
+      var on = parseInt(b.dataset.m, 10) === m;
       b.classList.toggle('is-on', on);
       b.setAttribute('aria-selected', on ? 'true' : 'false');
     });
+  }
+
+  function setBreakeven(m, animate) {
+    markSeg(m);
+    var a = nov(m), b = wp(m), c = nc(m);
+    var max = Math.max(a, b, c);
+    el.us.textContent = fmt(a) + '\u00A0\u20AC';
+    el.wp.textContent = fmt(b) + '\u00A0\u20AC';
+    el.nc.textContent = fmt(c) + '\u00A0\u20AC';
+    var pa = (a / max * 100) + '%', pb = (b / max * 100) + '%', pc = (c / max * 100) + '%';
+    if (animate && gsap) {
+      gsap.to(el.usf, { width: pa, duration: 0.7, ease: 'power3.out' });
+      gsap.to(el.wpf, { width: pb, duration: 0.7, ease: 'power3.out' });
+      gsap.to(el.ncf, { width: pc, duration: 0.7, ease: 'power3.out' });
+    } else {
+      el.usf.style.width = pa; el.wpf.style.width = pb; el.ncf.style.width = pc;
+    }
+    if (el.paid) el.paid.style.display = (a <= b) ? 'inline-block' : 'none';
   }
 })();

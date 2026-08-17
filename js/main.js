@@ -42,6 +42,9 @@
     }
 
     window.gsap.registerPlugin(window.ScrollTrigger);
+    window.gsap.set('#heroFrame', { clipPath: 'inset(48% 0% 48% 0%)' });
+    window.gsap.set('#heroMedia', { scale: 1.12 });
+    window.gsap.set(['#heroCta', '#heroTrust'], { opacity: 0, y: 26 });
     setupReveals();
     setupManifeste();
     setupSeparators();
@@ -49,7 +52,7 @@
     setupNever();
     setupMethode();
     setupMagnetic();
-    setupHeroParallax();
+    setupDock();
     setupFAQ();
     setupPreloader();
 
@@ -103,17 +106,15 @@
   function runHero() {
     if (reduce || !window.gsap) return;
     var gsap = window.gsap;
-    gsap.set(['.hero-cta', '.hero-trust'], { opacity: 0, y: 26 });
-    gsap.set('.hero-media', { opacity: 0, y: 40, scale: 0.985 });
-
     var tl = gsap.timeline({ defaults: { ease: EXPO } });
-    tl.to('.hero .eyebrow > span', { y: 0, duration: 0.9 })
-      .to('.hero-title .w', { y: 0, duration: 1, stagger: 0.06 }, '-=0.6')
-      .to('.hero-sub > span', { y: 0, duration: 0.9 }, '-=0.75')
-      .to('.hero-cta', { opacity: 1, y: 0, duration: 0.8 }, '-=0.55')
-      .to('.hero-trust', { opacity: 1, y: 0, duration: 0.7 }, '-=0.6')
-      .to('.hero-media', { opacity: 1, y: 0, scale: 1, duration: 1.2 }, '-=1.0')
-      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, '-=0.8');
+    tl.to('#heroFrame', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.15, ease: 'power4.inOut' }, 0)
+      .to('#heroMedia', { scale: 1, duration: 1.5, ease: 'power3.out' }, 0)
+      .to('.hero .eyebrow > span', { y: 0, duration: 0.9 }, 0.4)
+      .to('.hero-title .w', { y: 0, duration: 1, stagger: 0.06 }, 0.5)
+      .to('.hero-sub > span', { y: 0, duration: 0.9 }, '-=0.6')
+      .to('#heroCta', { opacity: 1, y: 0, duration: 0.8 }, '-=0.55')
+      .to('#heroTrust', { opacity: 1, y: 0, duration: 0.7 }, '-=0.6')
+      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, '-=0.7');
   }
 
   /* ---------------- HEADER ---------------- */
@@ -328,13 +329,21 @@
   }
 
   /* ---------------- HERO PARALLAX ---------------- */
-  function setupHeroParallax() {
-    if (reduce || window.innerWidth < 900) return;
+  function setupDock() {
+    if (reduce || !window.gsap) return;
     var gsap = window.gsap;
-    gsap.to('.hero-frame', {
-      yPercent: -12, ease: 'none',
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-    });
+    var frame = document.getElementById('heroFrame');
+    if (!frame) return;
+    var veil = document.getElementById('heroVeil');
+    var copy = document.getElementById('heroCopy');
+    var label = document.getElementById('heroCardLabel');
+    var tl = gsap.timeline({ defaults: { ease: 'none' },
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: 0.6 } });
+    tl.to(copy, { opacity: 0, y: -50, duration: 0.4 }, 0);
+    tl.to(veil, { opacity: 0, duration: 0.6 }, 0);
+    tl.to(frame, { scale: 0.86, borderRadius: 30, duration: 1 }, 0);
+    tl.fromTo(frame, { boxShadow: '0 40px 90px -30px rgba(16,20,40,0)' }, { boxShadow: '0 40px 90px -30px rgba(16,20,40,0.45)', duration: 1 }, 0);
+    tl.to(label, { opacity: 1, duration: 0.35 }, 0.6);
   }
 
   /* ---------------- VIDEO ---------------- */
