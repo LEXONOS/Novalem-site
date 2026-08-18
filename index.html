@@ -2,550 +2,641 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Studio Novalem — l'atelier web des Antilles</title>
-<meta name="description" content="Studio web des Antilles françaises. Des sites codés au pixel près, sans abonnement, livrés à 100% à vous. Le niveau des grandes maisons digitales, à un prix abordable." />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Novalem · Studio web des Antilles françaises</title>
+<meta name="description" content="Studio web des Antilles françaises. Des sites sur mesure, écrits en code natif, rapides et pensés pour votre activité. Un prix juste, un site qui vous appartient." />
 <meta name="theme-color" content="#F4F6FB" />
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-
+<meta property="og:title" content="Novalem · Studio web des Antilles françaises" />
+<meta property="og:description" content="Des sites pensés au pixel près. Code natif, prix juste, site qui vous appartient." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Studio Novalem — l'atelier web des Antilles" />
-<meta property="og:description" content="Des sites codés au pixel près, sans abonnement. Le niveau des grandes maisons digitales, posé aux Antilles." />
-<meta property="og:locale" content="fr_FR" />
-
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
-<body class="is-loading">
+<body>
 
-<!-- ============ PRELOADER ============ -->
-<div id="preloader" aria-hidden="true">
-  <div class="pl-inner">
-    <svg class="pl-emblem" viewBox="0 0 48 48" fill="none">
-      <circle class="pl-ring" cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.1"/>
-      <path class="pl-star" d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/>
-    </svg>
-    <div class="pl-word" aria-label="Novalem">
-      <span>N</span><span>O</span><span>V</span><span>A</span><span>L</span><span>E</span><span>M</span>
-    </div>
-    <div class="pl-tag">l'atelier web des Antilles</div>
-  </div>
-  <div class="pl-count"><span id="plNum">0</span></div>
-  <div class="pl-line"><i></i></div>
-</div>
+<div class="scroll-progress" id="progress" aria-hidden="true"></div>
 
 <!-- ============ HEADER ============ -->
-<header class="site-header" id="siteHeader" data-state="top">
-  <a class="brand" href="#top" aria-label="Studio Novalem, accueil">
-    <svg class="brand-emblem" id="brandEmblem" viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.4"/>
-      <path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/>
-    </svg>
-    <span class="brand-word">Novalem</span>
-  </a>
-
-  <nav class="nav" aria-label="Navigation principale">
-    <a href="#realisations" data-nav>Réalisations</a>
-    <a href="#offre" data-nav>Formules</a>
-    <a href="#methode" data-nav>Méthode</a>
-    <a href="#studio" data-nav>Le studio</a>
-    <a href="#faq" data-nav>Questions</a>
-  </nav>
-
-  <div class="header-right">
-    <a href="#contact" class="btn btn-primary magnetic" data-nav-cta>
-      <span class="btn-label">Parler du projet</span>
-    </a>
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
-      <span></span><span></span>
-    </button>
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Novalem, accueil">novalem<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#atouts">Atouts</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#formules">Formules</a>
+      <a href="#methode">Méthode</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <a href="tel:+590691253449" class="tel-link">+590 691 25 34 49</a>
+      <a href="#contact" class="btn btn-primary magnetic">Parlons de votre projet</a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
-<!-- ============ MENU OVERLAY ============ -->
-<div class="menu" id="menu" aria-hidden="true">
-  <div class="menu-grid">
-    <nav class="menu-nav" aria-label="Menu">
-      <a href="#realisations" data-menu-link><em>01</em>Réalisations</a>
-      <a href="#offre" data-menu-link><em>02</em>Formules</a>
-      <a href="#methode" data-menu-link><em>03</em>Méthode</a>
-      <a href="#studio" data-menu-link><em>04</em>Le studio</a>
-      <a href="#faq" data-menu-link><em>05</em>Questions</a>
-      <a href="#contact" data-menu-link><em>06</em>Contact</a>
-    </nav>
-    <div class="menu-side">
-      <div class="menu-side-block">
-        <span class="micro">Écrire</span>
-        <a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr</a>
-      </div>
-      <div class="menu-side-block">
-        <span class="micro">Appeler</span>
-        <a href="tel:+590691253449">+590 691 25 34 49</a>
-      </div>
-      <div class="menu-side-block">
-        <span class="micro">Suivre</span>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
-      </div>
-      <p class="menu-note">Basé en Guadeloupe. Disponible sur les quatre îles et partout à distance.</p>
-    </div>
+<!-- mobile menu -->
+<div class="menu" id="menu">
+  <a href="#atouts"><span class="idx">01</span>Atouts</a>
+  <a href="#realisations"><span class="idx">02</span>Réalisations</a>
+  <a href="#formules"><span class="idx">03</span>Formules</a>
+  <a href="#abonnements"><span class="idx">04</span>Abonnements</a>
+  <a href="#methode"><span class="idx">05</span>Méthode</a>
+  <a href="#contact"><span class="idx">06</span>Contact</a>
+  <div class="menu-foot">
+    <a href="tel:+590691253449">+590 691 25 34 49</a>
+    <a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr</a>
+    <span>Basé aux Antilles françaises, disponible partout.</span>
   </div>
 </div>
 
 <main id="top">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="hero">
-    <div class="hero-bloom" aria-hidden="true"></div>
-    <div class="wrap hero-inner">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas class="aurora" id="aurora" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+  <div class="hero-orbs" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+  <div class="wrap hero-inner">
+    <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow reveal-line"><span>Studio web &#183; Antilles fran&#231;aises</span></p>
-        <h1 class="hero-title">
-          <span class="line"><span class="w">Le</span> <span class="w">meilleur</span> <span class="w">du</span> <span class="w">web,</span></span>
-          <span class="line"><span class="w serif">enfin</span> <span class="w serif">abordable.</span></span>
-        </h1>
-        <p class="hero-sub reveal-line"><span>Sites cod&#233;s main, augment&#233;s &#224; l'IA, pens&#233;s au pixel pr&#232;s. Le prestige d'une agence, sans son tarif ni ses abonnements.</span></p>
-        <div class="hero-cta" id="heroCta">
-          <a href="#contact" class="btn btn-primary magnetic"><span class="btn-label">Parler du projet</span><span class="btn-arrow">&#8594;</span></a>
-          <a href="#realisations" class="btn btn-ghost magnetic"><span class="btn-label">Voir les r&#233;alisations</span></a>
+        <p class="eyebrow reveal"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Studio web · Antilles françaises</p>
+        <h1 class="reveal">Le meilleur du web, <em>enfin abordable.</em></h1>
+        <p class="sub reveal">Des sites sur mesure, écrits en code natif, rapides et pensés pour votre activité. Vous échangez directement avec la personne qui code, du premier appel à la mise en ligne.</p>
+        <div class="hero-cta reveal">
+          <a href="#contact" class="btn btn-primary magnetic">Démarrer un projet<span class="arr">→</span></a>
+          <a href="#formules" class="btn btn-ghost">Voir les formules</a>
         </div>
-        <ul class="hero-trust" id="heroTrust">
-          <li>4 &#238;les</li>
-          <li>Z&#233;ro abonnement</li>
-          <li>En ligne sous 2 semaines</li>
+        <div class="hero-trust reveal">
+          <span class="trust-chip"><span class="dot"></span>4 îles couvertes</span>
+          <span class="trust-chip"><span class="dot"></span>Zéro abonnement imposé</span>
+          <span class="trust-chip"><span class="dot"></span>En ligne sous 2 semaines</span>
+        </div>
+      </div>
+      <div class="stage reveal">
+        <div class="stage-emblem" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.1"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg>
+        </div>
+        <div class="glass tilt">
+          <div class="g-row">
+            <span class="g-dot"></span>
+            <span class="g-name">Nova</span>
+            <span class="g-status">en ligne</span>
+          </div>
+          <p class="g-msg">Bonjour, je suis Nova. Une idée de site à concrétiser ?</p>
+          <a href="#contact" class="g-input">Écrire à Nova…<span class="g-send">→</span></a>
+        </div>
+        <span class="stage-cap">votre présence, au pixel près</span>
+      </div>
+    </div>
+  </div>
+  <a href="#atouts" class="scroll-hint" aria-label="Défiler vers le bas"><span></span></a>
+</section>
+
+<!-- ============ ATOUTS ============ -->
+<section class="section" id="atouts">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Pourquoi Novalem</p>
+      <h2 class="h2">Trois raisons de me confier votre site</h2>
+      <p class="lead">Un site codé à la main, rapide, sécurisé et vraiment à vous. Pas de gabarit, pas de dépendance, pas de mauvaise surprise.</p>
+    </div>
+    <div class="pillars" data-stagger>
+      <div class="pillar tilt">
+        <span class="pillar-num">01</span>
+        <div class="pillar-ico"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></div>
+        <h3>Code natif</h3>
+        <p>Pas de WordPress, pas de constructeur en ligne. Un site 3 à 5 fois plus rapide, sans extension à mettre à jour et sans faille héritée d'un thème.</p>
+      </div>
+      <div class="pillar tilt">
+        <span class="pillar-num">02</span>
+        <div class="pillar-ico"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></div>
+        <h3>Zéro dépendance</h3>
+        <p>Domaine et hébergement OVH à votre nom. Je vous remets l'intégralité des fichiers sources : le site est à vous, rien ne vous retient chez moi.</p>
+      </div>
+      <div class="pillar tilt">
+        <span class="pillar-num">03</span>
+        <div class="pillar-ico"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></div>
+        <h3>SAV gratuit à vie</h3>
+        <p>Devis ferme avant la première ligne de code. Tout bug ou dysfonctionnement technique corrigé sans frais, sans limite de durée.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="tags-label">Ce que je conçois</span>
+      <div class="tags">
+        <span class="tag">Site vitrine sur mesure</span>
+        <span class="tag">Référencement SEO</span>
+        <span class="tag">Référencement GEO</span>
+        <span class="tag">Prise de rendez-vous</span>
+        <span class="tag">Formulaires avancés</span>
+        <span class="tag">Blog SEO</span>
+        <span class="tag">Boutique en ligne</span>
+        <span class="tag">Espace client</span>
+        <span class="tag">Automatisations sur mesure</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="marquee" aria-hidden="true">
+  <div class="mq-track" data-marquee>
+    <span>novalem<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>studio web<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>antilles françaises<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>code natif<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></span>
+  </div>
+  <div class="mq-track rev" data-marquee>
+    <span>pixel près<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>prix juste<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>site qui vous appartient<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></span>
+  </div>
+</section>
+
+<!-- ============ RÉALISATIONS ============ -->
+<section class="section" id="realisations">
+  <div class="wrap">
+    <div class="works-head reveal">
+      <div>
+        <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Dernières réalisations</p>
+        <h2 class="h2">Des sites livrés, en ligne</h2>
+      </div>
+      <div class="works-nav">
+        <button class="arrow-btn" id="prevWork" aria-label="Réalisation précédente">←</button>
+        <button class="arrow-btn" id="nextWork" aria-label="Réalisation suivante">→</button>
+      </div>
+    </div>
+    <div class="works-viewport" id="worksViewport">
+      <div class="works-track" id="worksTrack">
+
+        <article class="work" style="--accent-work:#7C5CFF">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">ifc-guadeloupe.fr</span></div>
+            <div class="browser-canvas">
+              <div class="mock">
+                <div class="mock-nav"><span class="mock-dot"></span><span class="mock-line w40"></span><span class="mock-pill"></span></div>
+                <div class="mock-hero"><span class="mock-title"></span><span class="mock-title short"></span><span class="mock-txt w70"></span><span class="mock-txt w50"></span><span class="mock-btn"></span></div>
+                <div class="mock-grid"><span></span><span></span><span></span></div>
+              </div>
+              <span class="mock-shimmer"></span>
+            </div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag">Site vitrine</span>
+            <h3>Ice Fruits Chocolate</h3>
+            <p>Roulotte de sorbets artisanaux à Sainte-Anne. Réalisé de A à Z : concept, carte, galerie et demande de devis.</p>
+            <a class="work-link" href="https://ifc-guadeloupe.fr" target="_blank" rel="noopener">Voir le site<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></a>
+          </div>
+        </article>
+
+        <article class="work" style="--accent-work:#22D3EE">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">love-dogs.fr</span></div>
+            <div class="browser-canvas">
+              <div class="mock">
+                <div class="mock-nav"><span class="mock-dot"></span><span class="mock-line w40"></span><span class="mock-pill"></span></div>
+                <div class="mock-hero"><span class="mock-title"></span><span class="mock-title short"></span><span class="mock-txt w70"></span><span class="mock-txt w50"></span><span class="mock-btn"></span></div>
+                <div class="mock-grid"><span></span><span></span><span></span></div>
+              </div>
+              <span class="mock-shimmer"></span>
+            </div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag">Une page · simulateur</span>
+            <h3>Love Dog's</h3>
+            <p>Services canins en Guadeloupe : éducation, dog sitting et nutrition, avec un simulateur de devis interactif intégré.</p>
+            <a class="work-link" href="https://love-dogs.fr" target="_blank" rel="noopener">Voir le site<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></a>
+          </div>
+        </article>
+
+        <article class="work" style="--accent-work:#3D4DFF">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">fontaine-guadeloupe.fr</span></div>
+            <div class="browser-canvas">
+              <div class="mock">
+                <div class="mock-nav"><span class="mock-dot"></span><span class="mock-line w40"></span><span class="mock-pill"></span></div>
+                <div class="mock-hero"><span class="mock-title"></span><span class="mock-title short"></span><span class="mock-txt w70"></span><span class="mock-txt w50"></span><span class="mock-btn"></span></div>
+                <div class="mock-grid"><span></span><span></span><span></span></div>
+              </div>
+              <span class="mock-shimmer"></span>
+            </div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag">Vitrine one-page</span>
+            <h3>Unik'eau</h3>
+            <p>Fontaines à eau sur réseau en Guadeloupe. Site vitrine one-page clair : modèles, tarifs et prise de contact.</p>
+            <a class="work-link" href="https://fontaine-guadeloupe.fr" target="_blank" rel="noopener">Voir le site<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></a>
+          </div>
+        </article>
+
+        <article class="work" style="--accent-work:#25D07A">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">focus-moto · bientôt</span></div>
+            <div class="browser-canvas">
+              <div class="mock">
+                <div class="mock-nav"><span class="mock-dot"></span><span class="mock-line w40"></span><span class="mock-pill"></span></div>
+                <div class="mock-hero"><span class="mock-title"></span><span class="mock-title short"></span><span class="mock-txt w70"></span><span class="mock-txt w50"></span><span class="mock-btn"></span></div>
+                <div class="mock-grid"><span></span><span></span><span></span></div>
+              </div>
+              <span class="mock-shimmer"></span>
+            </div>
+          </div>
+          <div class="work-body">
+            <span class="work-tag">En production</span>
+            <h3>Focus Moto</h3>
+            <p>Concession moto, scooter et quad en Guadeloupe. Catalogue, entretien et prise de contact. Bientôt en ligne.</p>
+            <a class="work-link disabled" aria-disabled="true">Bientôt en ligne<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <p class="work-count reveal">Projet <b id="workNow">1</b> / <span id="workTotal">4</span></p>
+  </div>
+</section>
+
+<!-- nova divider -->
+<div class="nova-div reveal"><span class="nl"></span><svg class="nova-star" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><span class="nr"></span></div>
+
+<!-- ============ FORMULES ============ -->
+<section class="section soft" id="formules">
+  <span class="sect-orb so-a" aria-hidden="true"></span>
+  <span class="sect-orb so-b" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Mes formules</p>
+      <h2 class="h2">Quatre formules, un devis ferme</h2>
+      <p class="lead">Tous mes sites sont responsives, optimisés pour la vitesse, sécurisés en HTTPS et livrés en ligne. Prix nets, sans abonnement.</p>
+    </div>
+
+    <div class="plans" data-stagger>
+      <div class="plan tilt">
+        <span class="plan-name">Essentiel</span>
+        <div class="plan-price"><span data-count="490" data-suffix=" €">0 €</span></div>
+        <p class="plan-for">Artisan, indépendant ou activité locale à installer en ligne rapidement.</p>
+        <p class="plan-delay">Livré en 7 jours</p>
+        <ul>
+          <li>Site une page, jusqu'à 6 sections</li>
+          <li>Design sur mesure, non gabarit</li>
+          <li>Formulaire de contact</li>
+          <li>Google Maps et itinéraire</li>
+          <li>Mobile, tablette, ordinateur</li>
+          <li>Mise en ligne et HTTPS</li>
+          <li>Balises SEO de base</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Choisir Essentiel</a>
+      </div>
+
+      <div class="plan reco tilt">
+        <span class="plan-flag">Recommandé</span>
+        <span class="plan-name">Vitrine</span>
+        <div class="plan-price"><span data-count="990" data-suffix=" €">0 €</span></div>
+        <p class="plan-for">PME et TPE qui veulent une présence complète et crédible.</p>
+        <p class="plan-delay">Livré en 10 à 14 jours</p>
+        <ul>
+          <li>Jusqu'à 5 pages structurées</li>
+          <li>Arborescence pensée avec vous</li>
+          <li>Formulaire de contact avancé</li>
+          <li>Galerie ou réalisations</li>
+          <li>SEO on-page complet</li>
+          <li>Search Console et sitemap</li>
+          <li>Données structurées Schema.org</li>
+          <li>Formation à la prise en main</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary magnetic">Choisir Vitrine</a>
+      </div>
+
+      <div class="plan tilt">
+        <span class="plan-name">Signature</span>
+        <div class="plan-price"><span data-count="1390" data-suffix=" €">0 €</span></div>
+        <p class="plan-for">Entreprise qui veut générer des contacts, pas seulement exister.</p>
+        <p class="plan-delay">Livré en 3 semaines</p>
+        <ul>
+          <li>Jusqu'à 10 pages</li>
+          <li>Tout le contenu de Vitrine</li>
+          <li>Blog avec interface de publication</li>
+          <li>Prise de rendez-vous en ligne</li>
+          <li>Pages ciblées par service ou ville</li>
+          <li>SEO avancé et GEO inclus</li>
+          <li>Suivi statistiques configuré</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">Choisir Signature</a>
+      </div>
+
+      <div class="plan tilt">
+        <span class="plan-name">Sur mesure</span>
+        <div class="plan-price">Sur devis</div>
+        <p class="plan-for">Boutique en ligne, espace client, outil métier connecté.</p>
+        <p class="plan-delay">Délai selon périmètre</p>
+        <ul>
+          <li>Périmètre libre</li>
+          <li>Boutique et paiement en ligne</li>
+          <li>Espace client sécurisé</li>
+          <li>Base de données et back-office</li>
+          <li>Connexion à vos outils existants</li>
+          <li>Automatisations sur mesure</li>
+          <li>Cahier des charges établi ensemble</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">En parler</a>
+      </div>
+    </div>
+
+    <div class="note-band reveal">À titre de repère, une agence facture le plus souvent <b>3 000 à 6 000 €</b> pour un site vitrine, avec une maintenance mensuelle en plus. Ici, c'est un prix unique, aucune maintenance imposée, et le site vous appartient.</div>
+
+    <div class="incl" data-stagger>
+      <div class="incl-item"><span class="incl-check">✓</span><div><h4>Maquette validée avant développement</h4><p>Vous voyez le rendu avant que je code.</p></div></div>
+      <div class="incl-item"><span class="incl-check">✓</span><div><h4>Deux tours de modifications inclus</h4><p>Les ajustements font partie du prix.</p></div></div>
+      <div class="incl-item"><span class="incl-check">✓</span><div><h4>SAV gratuit à vie</h4><p>Tout bug technique corrigé sans frais.</p></div></div>
+      <div class="incl-item"><span class="incl-check">✓</span><div><h4>Sources livrées, propriété totale</h4><p>Le code est à vous, définitivement.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPTIONS ============ -->
+<section class="section" id="options">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Options à la carte</p>
+      <h2 class="h2">Vous composez, je chiffre</h2>
+      <p class="lead">Chaque option s'ajoute à une formule ou à un site déjà en ligne. Rien n'est obligatoire.</p>
+    </div>
+    <div class="opt-grid" data-stagger>
+      <div class="opt-col">
+        <h3>Fonctionnalités</h3>
+        <div class="opt-row"><span class="on">Page supplémentaire</span><span class="op">90 €</span></div>
+        <div class="opt-row"><span class="on">Formulaire de devis</span><span class="op">150 €</span></div>
+        <div class="opt-row"><span class="on">Prise de rendez-vous</span><span class="op">190 €</span></div>
+        <div class="opt-row"><span class="on">Espace client sécurisé</span><span class="op">450 €</span></div>
+        <div class="opt-row"><span class="on">Version multilingue</span><span class="op">290 € / langue</span></div>
+        <div class="opt-row"><span class="on">Boutique en ligne</span><span class="op">dès 900 €</span></div>
+        <div class="opt-row"><span class="on">Avis Google en direct</span><span class="op">90 €</span></div>
+        <div class="opt-row"><span class="on">WhatsApp et messagerie</span><span class="op">60 €</span></div>
+      </div>
+      <div class="opt-col">
+        <h3>Visibilité et acquisition</h3>
+        <div class="opt-row"><span class="on">SEO technique</span><span class="op">290 €</span></div>
+        <div class="opt-row"><span class="on">Fiche Google Business</span><span class="op">150 €</span></div>
+        <div class="opt-row"><span class="on">Blog SEO</span><span class="op">350 €</span></div>
+        <div class="opt-row"><span class="on">Rédaction d'articles</span><span class="op">70 € / article</span></div>
+        <div class="opt-row"><span class="on">Abonnement contenu</span><span class="op">250 € / mois</span></div>
+        <div class="opt-row"><span class="on">GEO (ChatGPT, Perplexity)</span><span class="op">350 €</span></div>
+        <div class="opt-row"><span class="on">Google Ads, lancement</span><span class="op">350 €</span></div>
+        <div class="opt-row"><span class="on">Google Ads, pilotage</span><span class="op">190 € / mois</span></div>
+      </div>
+      <div class="opt-col">
+        <h3>Après la livraison</h3>
+        <div class="opt-row"><span class="on">SAV technique et bugs</span><span class="op free">Gratuit</span></div>
+        <div class="opt-row"><span class="on">Maintenance</span><span class="op free">0 €</span></div>
+        <div class="opt-row"><span class="on">Rapport de performance</span><span class="op">90 € / mois</span></div>
+        <div class="opt-row"><span class="on">Modification ou évolution</span><span class="op">Sur devis</span></div>
+        <div class="opt-row"><span class="on">Refonte d'un site existant</span><span class="op">Sur devis</span></div>
+        <p class="opt-foot">Le seul frais récurrent est le vôtre : l'hébergement à votre nom, à partir d'environ 25 € par an selon la formule OVH retenue, facturé directement par l'hébergeur. Je ne prends aucune marge dessus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABONNEMENTS ============ -->
+<section class="section soft" id="abonnements">
+  <span class="sect-orb so-c" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Pour ceux qui veulent déléguer</p>
+      <h2 class="h2">Trois abonnements, zéro engagement</h2>
+      <p class="lead">Mes sites fonctionnent très bien sans aucun abonnement. Ces formules existent pour ceux qui préfèrent me confier la vie du site, le contenu ou la publicité. Résiliables à tout moment par simple e-mail.</p>
+    </div>
+    <div class="subs" data-stagger>
+      <div class="sub tilt">
+        <span class="sub-name">Tranquillité</span>
+        <div class="sub-price">39 € <small>/ mois</small></div>
+        <p class="sub-desc">Vous ne touchez plus à rien : je m'occupe de tout ce qui est technique.</p>
+        <ul>
+          <li>2 modifications de contenu par mois</li>
+          <li>Surveillance du site et sauvegardes</li>
+          <li>Domaine et hébergement gérés pour vous</li>
+          <li>Vos demandes traitées sous 48 h</li>
         </ul>
       </div>
-      <div class="hero-visual" id="heroVisual">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <figure class="hero-panel">
-          <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/nova-poster.jpg">
-            <source src="video/nova.mp4" type="video/mp4">
-          </video>
-          <figcaption class="hero-panel-badge"><span class="hpb-dot"></span>Antilles fran&#231;aises</figcaption>
-          <div class="hero-panel-glass">
-            <span class="hpg-k">Notre &#233;toile</span>
-            <span class="hpg-t">viser haut, aimer ce qu'on fait</span>
-          </div>
-        </figure>
+      <div class="sub reco tilt">
+        <span class="plan-flag">Recommandé</span>
+        <span class="sub-name">Visibilité</span>
+        <div class="sub-price">149 € <small>/ mois</small></div>
+        <p class="sub-desc">Pour être trouvé et choisi sur Google, mois après mois.</p>
+        <ul>
+          <li>Tout Tranquillité inclus</li>
+          <li>1 article SEO publié chaque mois</li>
+          <li>Gestion et réponses à vos avis Google</li>
+          <li>Ajustements SEO en continu</li>
+          <li>Rapport mensuel de performance</li>
+        </ul>
+      </div>
+      <div class="sub tilt">
+        <span class="sub-name">Croissance</span>
+        <div class="sub-price">290 € <small>/ mois</small></div>
+        <p class="sub-desc">Le site devient votre machine à générer des demandes.</p>
+        <ul>
+          <li>Tout Visibilité inclus</li>
+          <li>Pilotage Google Ads en continu</li>
+          <li>Pages de conversion optimisées</li>
+          <li>Point téléphonique chaque mois</li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- ============ MANIFESTE ============ -->
-  <section class="manifeste" id="manifeste">
-    <div class="wrap">
-      <p class="manifeste-line" data-words>
-        Ici, rien n'est laissé au hasard. Chaque pixel est une décision, chaque animation une intention. Un site n'est pas une brochure. C'est votre <em>première impression</em>, et elle doit être parfaite.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ REALISATIONS ============ -->
-  <section class="section realisations" id="realisations">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow"><span class="eyebrow-star"></span>R&#233;alisations</p>
-        <h2 class="section-title reveal">Des sites d&#233;j&#224; en ligne.<br><em>Aux Antilles.</em></h2>
-        <p class="section-lead reveal">Pas des maquettes. De vrais sites qui tournent, pour de vraies entreprises d'ici. Passez la souris, ils s'animent. Cliquez, ils s'ouvrent.</p>
-      </header>
-      <div class="lp-grid">
-        <a class="lp-work lp-work--lead reveal-card" href="https://ifc-guadeloupe.fr" target="_blank" rel="noopener">
-          <div class="lp-shot">
-            <div class="lp-chrome"><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-addr">ifc-guadeloupe.fr</span></div>
-            <div class="lp-view"><iframe loading="lazy" title="Aper&#231;u IFC" scrolling="no" src="https://ifc-guadeloupe.fr"></iframe></div>
-            <div class="lp-fallback"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.6"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg><span>ifc-guadeloupe.fr</span></div>
-          </div>
-          <div class="lp-meta"><div class="lp-txt"><h3>IFC &#183; Ice Fruits Chocolate</h3><p>Roulotte de sorbets artisanaux &#183; Sainte-Anne</p></div><span class="lp-go">Voir le site <i>&#8599;</i></span></div>
-        </a>
-        <a class="lp-work reveal-card" href="https://love-dogs.fr" target="_blank" rel="noopener">
-          <div class="lp-shot">
-            <div class="lp-chrome"><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-addr">love-dogs.fr</span></div>
-            <div class="lp-view"><iframe loading="lazy" title="Aper&#231;u Love Dog's" scrolling="no" src="https://love-dogs.fr"></iframe></div>
-            <div class="lp-fallback"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.6"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg><span>love-dogs.fr</span></div>
-          </div>
-          <div class="lp-meta"><div class="lp-txt"><h3>Love Dog's</h3><p>&#201;ducation, dog sitting, nutrition &#183; Guadeloupe</p></div><span class="lp-go">Voir le site <i>&#8599;</i></span></div>
-        </a>
-        <a class="lp-work reveal-card" href="https://fontaine-guadeloupe.fr" target="_blank" rel="noopener">
-          <div class="lp-shot">
-            <div class="lp-chrome"><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-addr">fontaine-guadeloupe.fr</span></div>
-            <div class="lp-view"><iframe loading="lazy" title="Aper&#231;u Unik'eau" scrolling="no" src="https://fontaine-guadeloupe.fr"></iframe></div>
-            <div class="lp-fallback"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.6"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg><span>fontaine-guadeloupe.fr</span></div>
-          </div>
-          <div class="lp-meta"><div class="lp-txt"><h3>Unik'eau</h3><p>Fontaines &#224; eau sur r&#233;seau &#183; Guadeloupe</p></div><span class="lp-go">Voir le site <i>&#8599;</i></span></div>
-        </a>
-        <div class="lp-work lp-work--soon reveal-card">
-          <div class="lp-shot lp-shot--soon">
-            <div class="lp-chrome"><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-dot"></span><span class="lp-addr">focus-moto</span></div>
-            <div class="lp-soon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.4"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg><span class="lp-soon-badge">En production</span></div>
-          </div>
-          <div class="lp-meta"><div class="lp-txt"><h3>Focus Moto</h3><p>Concession moto &amp; scooter &#183; Guadeloupe</p></div><span class="lp-go lp-go--muted">Bient&#244;t en ligne</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SEPARATEUR ============ -->
-  <div class="sep" aria-hidden="true">
-    <span class="sep-line sep-line--l"></span>
-    <svg class="sep-star" viewBox="0 0 24 24"><path d="M12 1C12 8 16 12 23 12C16 12 12 16 12 23C12 16 8 12 1 12C8 12 12 8 12 1Z" fill="currentColor"/></svg>
-    <span class="sep-line sep-line--r"></span>
+    <div class="note-band reveal">Aucune de ces formules n'est obligatoire : le site tourne seul, sans maintenance imposée. Le premier mois est <b>sans engagement</b> et remboursé si vous n'êtes pas convaincu.</div>
   </div>
+</section>
 
-  <!-- ============ OFFRE ============ -->
-  <section class="section offre" id="offre">
-    <div class="wrap">
-      <header class="section-head section-head--center">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Formules</p>
-        <h2 class="section-title reveal">Un prix clair. Sans surprise.</h2>
-        <p class="section-lead reveal">Trois formules, un prix affiché, et aucun abonnement caché. On ajuste au budget, jamais l'inverse.</p>
-      </header>
+<!-- nova divider -->
+<div class="nova-div reveal"><span class="nl"></span><svg class="nova-star" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><span class="nr"></span></div>
 
-      <div class="plans">
-        <article class="plan reveal-card">
-          <header class="plan-head">
-            <h3 class="plan-name">Essentiel</h3>
-            <p class="plan-for">Une présence nette, une page.</p>
-          </header>
-          <div class="plan-price"><span class="cur">€</span><span class="num" data-count="490">0</span></div>
-          <ul class="plan-list">
-            <li>Site une page sur mesure</li>
-            <li>Design et rédaction guidés</li>
-            <li>Formulaire de contact</li>
-            <li>Optimisé mobile et Google</li>
-          </ul>
-          <a href="#contact" class="btn btn-line magnetic"><span class="btn-label">Choisir Essentiel</span></a>
-        </article>
-
-        <article class="plan plan--reco reveal-card">
-          <span class="plan-flag">Le plus demandé</span>
-          <span class="plan-ring" aria-hidden="true"></span>
-          <header class="plan-head">
-            <h3 class="plan-name">Vitrine</h3>
-            <p class="plan-for">Plusieurs pages pour tout dire.</p>
-          </header>
-          <div class="plan-price"><span class="cur">€</span><span class="num" data-count="990">0</span></div>
-          <ul class="plan-list">
-            <li>Jusqu'à 5 pages et arborescence</li>
-            <li>Référencement local soigné</li>
-            <li>Formulaires et prise de contact</li>
-            <li>Animations et détails travaillés</li>
-          </ul>
-          <a href="#contact" class="btn btn-primary magnetic"><span class="btn-label">Choisir Vitrine</span></a>
-        </article>
-
-        <article class="plan reveal-card">
-          <header class="plan-head">
-            <h3 class="plan-name">Signature</h3>
-            <p class="plan-for">Le grand jeu, effet garanti.</p>
-          </header>
-          <div class="plan-price"><span class="cur">€</span><span class="num" data-count="1390">0</span></div>
-          <ul class="plan-list">
-            <li>Site multipage haut de gamme</li>
-            <li>Animations et interactions poussées</li>
-            <li>Blog et référencement avancé</li>
-            <li>Accompagnement rapproché</li>
-          </ul>
-          <a href="#contact" class="btn btn-line magnetic"><span class="btn-label">Choisir Signature</span></a>
-        </article>
+<!-- ============ MÉTHODE ============ -->
+<section class="section" id="methode">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Le déroulé</p>
+      <h2 class="h2">Comment ça se passe, étape par étape</h2>
+    </div>
+    <div class="steps" id="steps">
+      <div class="step">
+        <div class="step-dot">01</div>
+        <div class="step-line"><i></i></div>
+        <h3>Cadrage</h3>
+        <p>Trente minutes au téléphone. Objectifs, clientèle, arborescence, contenus disponibles. Devis ferme sous 48 h.</p>
       </div>
+      <div class="step">
+        <div class="step-dot">02</div>
+        <div class="step-line"><i></i></div>
+        <h3>Maquette</h3>
+        <p>Vous validez le design page par page avant que je code quoi que ce soit. Aucune surprise à la livraison.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">03</div>
+        <div class="step-line"><i></i></div>
+        <h3>Développement</h3>
+        <p>Codage, intégration des contenus, tests sur tous les écrans. Deux tours de modifications compris.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">04</div>
+        <div class="step-line"><i></i></div>
+        <h3>Mise en ligne</h3>
+        <p>Déploiement, HTTPS, indexation Google, remise des fichiers sources et prise en main de trente minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <a href="#contact" class="plan-custom reveal">
+<!-- ============ ENGAGEMENTS ============ -->
+<section class="section" id="engagements">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Mes engagements</p>
+      <h2 class="h2">Ce à quoi je m'engage</h2>
+    </div>
+    <div class="eng-grid" data-stagger>
+      <div class="eng"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><h3>Devis ferme et définitif</h3><p>Le prix annoncé est le prix payé. Toute évolution du périmètre est chiffrée et validée par écrit avant exécution.</p></div>
+      <div class="eng"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><h3>Vous restez propriétaire de tout</h3><p>Domaine, hébergement, code source et contenus sont à votre nom. Vous pouvez partir du jour au lendemain.</p></div>
+      <div class="eng"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><h3>Performance mesurable</h3><p>Objectif score PageSpeed supérieur à 90 sur mobile. Le résultat est vérifiable publiquement.</p></div>
+      <div class="eng"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><h3>Un seul interlocuteur</h3><p>Pas de service commercial, pas de sous-traitance. Vous parlez directement à moi, celui qui code.</p></div>
+      <div class="eng"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><h3>Délais tenus ou compensés</h3><p>Un retard qui m'est imputable ouvre droit à une remise de 10 % par semaine entamée.</p></div>
+      <div class="eng"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><h3>SAV gratuit, sans limite</h3><p>Un bug, une panne, un dysfonctionnement : je corrige sans facturer, quelle que soit l'ancienneté du site.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHIFFRES ============ -->
+<section class="section soft" id="chiffres">
+  <span class="sect-orb so-a" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Chiffres clés</p>
+      <h2 class="h2">Des repères concrets</h2>
+    </div>
+    <div class="stats" data-stagger>
+      <div class="stat"><div class="stat-num"><span data-count="90" data-suffix="+">0</span></div><p class="stat-label">score PageSpeed visé sur mobile</p></div>
+      <div class="stat"><div class="stat-num"><span data-count="24" data-suffix=" h">0</span></div><p class="stat-label">délai de réponse maximum</p></div>
+      <div class="stat"><div class="stat-num"><span data-count="100" data-suffix=" %">0</span></div><p class="stat-label">propriété du site pour vous</p></div>
+      <div class="stat"><div class="stat-num"><span data-count="0" data-suffix=" €">0</span></div><p class="stat-label">abonnement imposé</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER ============ -->
+<section class="section" id="studio">
+  <div class="wrap">
+    <div class="founder reveal">
+      <div class="founder-mark">
+        <svg class="emblem" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.2"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg>
+      </div>
+      <div>
+        <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Le studio</p>
+        <p class="founder-q">Moi c'est Louis. J'ai 21 ans, étudiant entrepreneur en Guadeloupe, et le web est ma passion. Je m'investis à fond sur chaque projet, <em>du premier appel à la mise en ligne.</em> Vous échangez directement avec la personne qui code, jamais avec un commercial.</p>
+        <p class="founder-sign">Un prix juste, un travail soigné, et une vraie envie de bien faire. <b>Novalem</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <p class="eyebrow center-eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>FAQ</p>
+      <h2 class="h2 center-h2">Questions fréquentes</h2>
+    </div>
+    <div class="faq-wrap reveal">
+      <div class="faq">
+        <button class="faq-q">Pourquoi un site codé plutôt que WordPress ou Wix ?<span class="faq-ico"></span></button>
+        <div class="faq-a"><p>Un site codé sur mesure est 3 à 5 fois plus rapide, sans extension à maintenir et sans faille héritée d'un thème. Surtout, il n'y a aucun abonnement mensuel : vous payez une fois, le site vous appartient.</p></div>
+      </div>
+      <div class="faq">
+        <button class="faq-q">Le site m'appartient-il vraiment ?<span class="faq-ico"></span></button>
+        <div class="faq-a"><p>Oui, entièrement. Le domaine et l'hébergement sont à votre nom, et je vous remets l'intégralité des fichiers sources. Vous pouvez partir chez qui vous voulez du jour au lendemain, rien ne vous retient.</p></div>
+      </div>
+      <div class="faq">
+        <button class="faq-q">Combien coûte l'hébergement ?<span class="faq-ico"></span></button>
+        <div class="faq-a"><p>Environ 25 € par an chez OVH, pas par mois, facturé directement par l'hébergeur. Je ne prends aucune marge dessus. C'est le seul frais récurrent, et il reste à votre nom.</p></div>
+      </div>
+      <div class="faq">
+        <button class="faq-q">Puis-je modifier le site moi-même ?<span class="faq-ico"></span></button>
+        <div class="faq-a"><p>Comme il est codé sur mesure, les modifications passent par moi. Les bugs sont corrigés gratuitement à vie ; une modification de contenu est facturée à prix réaliste. Si vous voulez être autonome sur une partie précise, on ajoute une petite application dédiée, sur devis.</p></div>
+      </div>
+      <div class="faq">
+        <button class="faq-q">Vous intervenez où ?<span class="faq-ico"></span></button>
+        <div class="faq-a"><p>Aux Antilles françaises : Guadeloupe, Martinique, Saint-Martin et Saint-Barthélemy, en présentiel comme à distance. Tout le suivi se fait par téléphone et en ligne, où que vous soyez.</p></div>
+      </div>
+      <div class="faq">
+        <button class="faq-q">Quels sont les délais ?<span class="faq-ico"></span></button>
+        <div class="faq-a"><p>De 7 jours pour un site une page (Essentiel) à 3 semaines pour un site complet orienté contacts (Signature). Le délai exact est fixé au cadrage, et un retard qui m'est imputable est compensé.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- nova divider -->
+<div class="nova-div reveal"><span class="nl"></span><svg class="nova-star" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg><span class="nr"></span></div>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <canvas class="contact-aurora" id="contactAurora" aria-hidden="true"></canvas>
+      <div class="contact-grid">
         <div>
-          <span class="work-tag">Sur mesure</span>
-          <p>Boutique en ligne, espace client, outil métier ? On chiffre votre idée après un premier échange.</p>
-        </div>
-        <span class="work-cta">Décrire mon projet <span>→</span></span>
-      </a>
-
-      <!-- La vraie question : le prix -->
-      <div class="rp" id="rp" data-state="after">
-        <div class="rp-inner">
-          <header class="rp-head">
-            <p class="eyebrow eyebrow--light"><span class="eyebrow-star"></span>La vraie question</p>
-            <h3 class="rp-title">Un site de ce niveau, <em>c'est cher</em>.</h3>
-            <p class="rp-lead">Enfin, c'est ce qu'on vous a habitu&#233; &#224; croire.</p>
-          </header>
-          <div class="rp-stage">
-            <div class="rp-glow" id="rpGlow" aria-hidden="true"></div>
-            <div class="rp-shock" id="rpShock" aria-hidden="true"></div>
-            <div class="rp-figure">
-              <div class="rp-amount" id="rpAmount"><span class="rp-cur">&#8364;</span><span class="rp-num" id="rpNum">990</span></div>
-              <p class="rp-caption" id="rpCaption">Formule Vitrine. Tout compris. Une fois.</p>
-            </div>
-            <ul class="rp-chips" id="rpChips" aria-hidden="true">
-              <li><span class="rp-chip-old">50 &#8364;/mois</span> Agence WordPress</li>
-              <li>Maintenance impos&#233;e</li>
-              <li>Th&#232;me payant</li>
-              <li>Plugins &#224; renouveler</li>
-            </ul>
-            <button class="rp-trigger" id="rpTrigger" type="button"><span class="rp-trigger-orb" aria-hidden="true"><i></i></span><span class="rp-trigger-label">Appuyez pour voir notre prix</span></button>
-            <div class="rp-after" id="rpAfter">
-              <p class="rp-punch">Le m&#234;me travail. <em>Une fois pay&#233;.</em></p>
-              <p class="rp-sub">Puis 25 &#8364; par an d'h&#233;bergement, &#224; votre nom. Pas par mois. Z&#233;ro abonnement, &#224; vie.</p>
-              <p class="rp-micro">Un site no-code vous facture &#224; peu pr&#232;s &#231;a. <strong>Chaque mois.</strong></p>
-              <div class="rp-be" id="rpBe">
-                <div class="rp-be-head"><span>Et chaque mois qui passe ?</span>
-                  <div class="rp-seg" id="rpSeg" role="tablist">
-                    <button type="button" data-m="12" role="tab">1 an</button>
-                    <button type="button" data-m="24" role="tab">2 ans</button>
-                    <button type="button" data-m="36" role="tab" aria-selected="true" class="is-on">3 ans</button>
-                  </div>
-                </div>
-                <div class="rp-rows">
-                  <div class="rp-row rp-row--us"><div class="rp-row-top"><span>Novalem <b class="rp-paid" id="rpPaid">rembours&#233;</b></span><b id="rpUs">1&#8239;062 &#8364;</b></div><div class="rp-track"><i id="rpUsFill"></i></div><p class="rp-rn">Pay&#233; une fois. Puis presque rien. Et 100 % &#224; vous.</p></div>
-                  <div class="rp-row rp-row--wp"><div class="rp-row-top"><span>Une agence (WordPress)</span><b id="rpWp">1&#8239;800 &#8364;</b></div><div class="rp-track"><i id="rpWpFill"></i></div></div>
-                  <div class="rp-row rp-row--nc"><div class="rp-row-top"><span>No-code (Wix, etc.)</span><b id="rpNc">1&#8239;404 &#8364;</b></div><div class="rp-track"><i id="rpNcFill"></i></div><p class="rp-rn rp-rn--warn">Lou&#233; &#224; vie, jamais &#224; vous, et brid&#233; par un template.</p></div>
-                </div>
-                <p class="rp-verdict">D&#232;s le 21e mois face &#224; une agence, votre site est d&#233;j&#224; rembours&#233;. Ensuite, chaque mois est gagn&#233;. Et chez nous, tout est possible, pas seulement ce qu'un template autorise.</p>
-              </div>
-              <button class="rp-replay" id="rpReplay" type="button">Rejouer</button>
-            </div>
+          <p class="eyebrow"><svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg>Parlons-en</p>
+          <h2>Parlons de votre projet</h2>
+          <p class="lead">Un appel de trente minutes suffit pour cadrer le besoin et vous donner un chiffrage ferme.</p>
+          <div class="contact-info">
+            <div class="ci-row"><span class="ci-ico">☎</span><a href="tel:+590691253449">+590 691 25 34 49<small>Guadeloupe et Antilles</small></a></div>
+            <div class="ci-row"><span class="ci-ico">☎</span><a href="tel:+33658212090">+33 6 58 21 20 90<small>Métropole</small></a></div>
+            <div class="ci-row"><span class="ci-ico">✉</span><a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr<small>Réponse sous 24 h</small></a></div>
           </div>
         </div>
+        <form class="form" id="contactForm">
+          <div class="field"><label for="cf-name">Votre nom</label><input id="cf-name" type="text" placeholder="Nom et prénom" required /></div>
+          <div class="field"><label for="cf-mail">Votre e-mail</label><input id="cf-mail" type="email" placeholder="vous@exemple.fr" required /></div>
+          <div class="field"><label for="cf-msg">Votre projet</label><textarea id="cf-msg" placeholder="Décrivez votre activité et ce que vous aimeriez..."></textarea></div>
+          <button type="submit" class="btn btn-primary magnetic">Envoyer ma demande<span class="arr">→</span></button>
+        </form>
       </div>
     </div>
-  </section>
-
-  <!-- ============ SEPARATEUR ============ -->
-  <div class="sep" aria-hidden="true">
-    <span class="sep-line sep-line--l"></span>
-    <svg class="sep-star" viewBox="0 0 24 24"><path d="M12 1C12 8 16 12 23 12C16 12 12 16 12 23C12 16 8 12 1 12C8 12 12 8 12 1Z" fill="currentColor"/></svg>
-    <span class="sep-line sep-line--r"></span>
   </div>
-
-  <!-- ============ METHODE ============ -->
-  <section class="section methode" id="methode">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Méthode</p>
-        <h2 class="section-title reveal">Simple, du premier échange<br>à la mise en ligne.</h2>
-      </header>
-
-      <ol class="steps" id="steps">
-        <div class="steps-rail" aria-hidden="true"><i id="stepsProgress"></i></div>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">01</span>
-          <h3 class="step-name">On échange</h3>
-          <p class="step-desc">Un appel ou un café. On cadre vos besoins, vos pages et votre contenu. Zéro jargon.</p>
-        </li>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">02</span>
-          <h3 class="step-name">Je conçois</h3>
-          <p class="step-desc">Je construis une première version et je vous envoie un lien en ligne pour la voir vivre.</p>
-        </li>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">03</span>
-          <h3 class="step-name">On affine</h3>
-          <p class="step-desc">On se voit, vous me dites ce qui bouge. J'ajuste jusqu'à ce que ce soit exactement ça.</p>
-        </li>
-        <li class="step reveal-card">
-          <span class="step-dot"></span>
-          <span class="step-idx">04</span>
-          <h3 class="step-name">En ligne</h3>
-          <p class="step-desc">Mise en ligne, remise des fichiers, accès à votre nom. Le site est à 100% à vous.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ SEPARATEUR ============ -->
-  <div class="sep" aria-hidden="true">
-    <span class="sep-line sep-line--l"></span>
-    <svg class="sep-star" viewBox="0 0 24 24"><path d="M12 1C12 8 16 12 23 12C16 12 12 16 12 23C12 16 8 12 1 12C8 12 12 8 12 1Z" fill="currentColor"/></svg>
-    <span class="sep-line sep-line--r"></span>
-  </div>
-
-  <!-- ============ STUDIO ============ -->
-  <section class="section studio" id="studio">
-    <div class="wrap studio-grid">
-      <div class="studio-copy">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Le studio</p>
-        <h2 class="section-title reveal">Derrière Studio Novalem,<br>il y a <em>Louis</em>.</h2>
-        <p class="studio-text reveal">21 ans, étudiant entrepreneur, passionné de web et de marketing. J'ai lancé Studio Novalem avec une idée simple : offrir aux entreprises des îles des sites du niveau des grandes maisons digitales, sans le prix des grandes maisons digitales.</p>
-        <p class="studio-text reveal">Pas d'usine, pas de sous-traitance. Je code chaque site à la main, je reste joignable, et je m'investis comme si c'était le mien. Novalem, c'est <em>Nova</em>, l'étoile qu'on vise, et l'envie de faire les choses bien. Viser haut, et aimer ça.</p>
-        <div class="studio-sign reveal">
-          <span class="studio-sign-name">Louis</span>
-          <span class="studio-sign-role">Fondateur · Studio Novalem</span>
-        </div>
-      </div>
-      <div class="studio-visual reveal">
-        <canvas id="constellation" class="constellation"></canvas>
-        <div class="studio-visual-frame" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FAQ ============ -->
-  <section class="section faq" id="faq">
-    <div class="wrap">
-      <header class="section-head">
-        <p class="eyebrow"><span class="eyebrow-star"></span>Questions</p>
-        <h2 class="section-title reveal">Ce qu'on nous demande<br>le plus souvent.</h2>
-      </header>
-
-      <div class="faq-list">
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">01</span><span class="faq-q">Combien coûte un site ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Les sites démarrent à 490 € pour une page, et la plupart se situent autour de 990 € pour une vitrine complète. Pour une boutique ou un outil sur mesure, on chiffre après un premier échange. Un prix clair, affiché, sans surprise.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">02</span><span class="faq-q">Quels sont les délais ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Comptez deux à quatre semaines selon l'ampleur du projet. Vous voyez une première version en ligne très vite, puis on affine ensemble jusqu'à la mise en ligne.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">03</span><span class="faq-q">Y a-t-il un abonnement à payer ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Non. Un site codé n'a pas d'abonnement mensuel, contrairement à un WordPress. Le seul coût récurrent, c'est environ 25 € par an, pas par mois, d'hébergement, à votre nom. Rien d'autre.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">04</span><span class="faq-q">Le site m'appartient vraiment ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>À 100%. Je vous remets tous les fichiers du site, et les accès à l'hébergement et au nom de domaine sont créés à votre nom. Vous êtes propriétaire, entièrement et pour toujours.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">05</span><span class="faq-q">Et après la mise en ligne ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Le SAV est gratuit à vie sur tout bug venant de mon code. Pour ajouter une page ou faire évoluer le site plus tard, c'est un devis simple, à votre rythme. Aucune maintenance imposée.</p></div>
-        </details>
-        <details class="faq-item reveal">
-          <summary><span class="faq-idx">06</span><span class="faq-q">Vous travaillez où ?</span><span class="faq-plus"></span></summary>
-          <div class="faq-a"><p>Basé en Guadeloupe, je travaille sur les quatre îles des Antilles françaises, Guadeloupe, Martinique, Saint-Martin et Saint-Barthélemy, et partout ailleurs à distance.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section class="section contact" id="contact">
-    <canvas id="sky" class="sky" aria-hidden="true"></canvas>
-    <div class="wrap contact-grid">
-      <div class="contact-copy">
-        <p class="eyebrow eyebrow--onDark"><span class="eyebrow-star"></span>Contact</p>
-        <h2 class="contact-title">On vise la lune ?</h2>
-        <p class="contact-lead">Décrivez votre projet en deux lignes. Je réponds sous 24 heures, avec un premier avis honnête et une idée de prix.</p>
-        <div class="contact-direct">
-          <a href="mailto:contact@studionovalem.fr" class="contact-direct-item">
-            <span class="micro">Écrire</span>
-            <span>contact@studionovalem.fr</span>
-          </a>
-          <a href="tel:+590691253449" class="contact-direct-item">
-            <span class="micro">Appeler</span>
-            <span>+590 691 25 34 49</span>
-          </a>
-        </div>
-      </div>
-
-      <form class="contact-form" id="contactForm" novalidate>
-        <div class="field">
-          <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder=" " />
-          <label for="cf-name">Votre nom</label>
-        </div>
-        <div class="field">
-          <input type="text" id="cf-company" name="company" autocomplete="organization" placeholder=" " />
-          <label for="cf-company">Votre entreprise</label>
-        </div>
-        <div class="field">
-          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder=" " />
-          <label for="cf-email">Votre email</label>
-        </div>
-        <div class="field">
-          <textarea id="cf-msg" name="message" rows="4" required placeholder=" "></textarea>
-          <label for="cf-msg">Votre projet en quelques mots</label>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block magnetic">
-          <span class="btn-label">Envoyer</span><span class="btn-arrow">→</span>
-        </button>
-        <p class="form-hint" id="formHint">Réponse sous 24 h. Aucun engagement.</p>
-      </form>
-    </div>
-  </section>
-
+</section>
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap footer-grid">
-    <div class="footer-brand">
-      <a class="brand brand--footer" href="#top" aria-label="Studio Novalem">
-        <svg class="brand-emblem" viewBox="0 0 48 48" fill="none">
-          <circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.4"/>
-          <path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/>
-        </svg>
-        <span class="brand-word">Novalem</span>
-      </a>
-      <p class="footer-tag"><em>l'atelier web des Antilles</em></p>
-    </div>
-    <nav class="footer-nav" aria-label="Pied de page">
-      <a href="#realisations">Réalisations</a>
-      <a href="#offre">Formules</a>
-      <a href="#methode">Méthode</a>
-      <a href="#studio">Le studio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="footer-contact">
-      <a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr</a>
-      <a href="tel:+590691253449">+590 691 25 34 49</a>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a>
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand">novalem<svg class="spark" viewBox="0 0 24 24"><path d="M12 0C12 7 17 12 24 12C17 12 12 17 12 24C12 17 7 12 0 12C7 12 12 7 12 0Z" fill="currentColor"/></svg></a>
+        <p>Des sites pensés au pixel près. Le studio web des Antilles françaises.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <a href="#atouts">Atouts</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#methode">Méthode</a>
+        <a href="#studio">Le studio</a>
+      </div>
+      <div class="foot-col">
+        <h4>Offre</h4>
+        <a href="#formules">Formules</a>
+        <a href="#options">Options à la carte</a>
+        <a href="#abonnements">Abonnements</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+590691253449">+590 691 25 34 49</a>
+        <a href="mailto:contact@studionovalem.fr">contact@studionovalem.fr</a>
+        <span>Basé aux Antilles françaises,<br>disponible partout.</span>
       </div>
     </div>
-  </div>
-  <div class="wrap footer-base">
-    <span>Studio web · Antilles françaises · EST. 2025</span>
-    <span>© <span id="year"></span> Studio Novalem</span>
+    <div class="foot-bottom">
+      <p class="foot-legal">Micro-entreprise · SIRET 103405 24700018 · TVA non applicable, article 293 B du CGI. Prix nets en euros. Contenus textes et visuels fournis par le client, rédaction et banque d'images en option.</p>
+      <p class="foot-copy">© 2026 Novalem</p>
+    </div>
   </div>
 </footer>
 
-<!-- ============ NOVA ORB + ASSISTANT ============ -->
-<button class="nova-orb" id="novaOrb" aria-label="Parler à Nova, l'assistant du studio">
-  <canvas id="novaCanvas" width="140" height="140"></canvas>
-  <span class="nova-orb-hint">Nova</span>
-</button>
-
-<aside class="nova-panel" id="novaPanel" aria-hidden="true" aria-label="Assistant Nova">
-  <header class="nova-head">
-    <div class="nova-head-id">
-      <span class="nova-head-dot"></span>
-      <div>
-        <strong>Nova</strong>
-        <span>Assistant du studio</span>
-      </div>
-    </div>
-    <button class="nova-close" id="novaClose" aria-label="Fermer">×</button>
-  </header>
-  <div class="nova-log" id="novaLog"></div>
-  <div class="nova-chips" id="novaChips">
-    <button data-q="formules">Les formules</button>
-    <button data-q="delais">Les délais</button>
-    <button data-q="abonnement">Les abonnements</button>
-    <button data-q="methode">La méthode</button>
-    <button data-q="contact">Vous joindre</button>
-  </div>
-  <form class="nova-input" id="novaForm">
-    <input type="text" id="novaText" placeholder="Écrire à Nova…" autocomplete="off" />
-    <button type="submit" aria-label="Envoyer">→</button>
-  </form>
-</aside>
-
-<!-- ============ SOUND TOGGLE ============ -->
-<button class="sound-toggle" id="soundToggle" aria-pressed="false" aria-label="Activer le son de l'interface">
-  <span class="sound-bars"><i></i><i></i><i></i><i></i></span>
-  <span class="sound-label">Son</span>
-</button>
-
-<!-- ============ SCRIPTS ============ -->
-<script src="js/vendor/gsap.min.js"></script>
-<script src="js/vendor/ScrollTrigger.min.js"></script>
-<script src="js/sound.js"></script>
-<script src="js/nova-orb.js"></script>
-<script src="js/sky.js"></script>
-<script src="js/constellation.js"></script>
-<script src="js/works.js"></script>
-<script src="js/price.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
