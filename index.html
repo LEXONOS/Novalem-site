@@ -99,30 +99,34 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
-    <div class="wm-stage" id="wmStage">
-      <video id="wmVideo" class="wm-video" autoplay muted loop playsinline preload="auto" poster="video/nova-poster.jpg">
-        <source src="video/nova.mp4" type="video/mp4">
-      </video>
-      <svg class="wm-knock" id="wmKnock" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <defs>
-          <mask id="wmMask">
-            <rect x="0" y="0" width="100%" height="100%" fill="#fff"></rect>
-            <text id="wmText" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">NOVALEM</text>
-          </mask>
-        </defs>
-        <rect class="wm-fill" x="0" y="0" width="100%" height="100%" mask="url(#wmMask)"></rect>
-      </svg>
-    </div>
-    <div class="hero-copy hero-copy--wm" id="heroCopy">
-      <p class="eyebrow reveal-line" id="heroEyebrow"><span>Studio web &#183; Antilles fran&#231;aises</span></p>
-      <div class="hero-lower" id="heroLower">
-        <p class="hero-sub"><span class="hs-line">Le meilleur du web, <em>enfin abordable.</em></span></p>
-        <p class="hero-note">Sites cod&#233;s main, augment&#233;s &#224; l'IA. Le prestige d'une agence, sans son tarif ni ses abonnements.</p>
+    <div class="hero-stage">
+      <div class="hero-frame" id="heroFrame">
+        <div class="hero-media" id="heroMedia">
+          <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/nova-poster.jpg">
+            <source src="video/nova.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-veil" id="heroVeil"></div>
+      </div>
+      <div class="hero-copy" id="heroCopy">
+        <p class="eyebrow reveal-line"><span>Studio web &#183; Antilles fran&#231;aises</span></p>
+        <h1 class="hero-title">
+          <span class="line"><span class="w">Le</span> <span class="w">meilleur</span> <span class="w">du</span> <span class="w">web,</span></span>
+          <span class="line"><span class="w serif">enfin</span> <span class="w serif">abordable.</span></span>
+        </h1>
+        <p class="hero-sub reveal-line"><span>Sites cod&#233;s main, augment&#233;s &#224; l'IA, pens&#233;s au pixel pr&#232;s. Le prestige d'une agence, sans son tarif ni ses abonnements.</span></p>
         <div class="hero-cta" id="heroCta">
           <a href="#contact" class="btn btn-primary magnetic"><span class="btn-label">Parler du projet</span><span class="btn-arrow">&#8594;</span></a>
           <a href="#realisations" class="btn btn-ghost magnetic"><span class="btn-label">Voir les r&#233;alisations</span></a>
         </div>
+        <ul class="hero-trust" id="heroTrust">
+          <li>4 &#238;les</li>
+          <li>Z&#233;ro abonnement</li>
+          <li>En ligne sous 2 semaines</li>
+        </ul>
       </div>
+      <div class="hero-word" id="heroWord" aria-hidden="true"><span class="hw"><i>N</i></span><span class="hw"><i>O</i></span><span class="hw"><i>V</i></span><span class="hw"><i>A</i></span><span class="hw"><i>L</i></span><span class="hw"><i>E</i></span><span class="hw"><i>M</i></span></div>
+      <div class="hero-brandline" id="heroBrandline">Studio web des Antilles fran&#231;aises</div>
     </div>
   </section>
 

@@ -37,18 +37,14 @@
       if (pl) pl.style.display = 'none';
       document.body.classList.remove('is-loading');
       fillCountersStatic();
-      fitWordmark();
-      window.addEventListener('resize', fitWordmark);
       if (hasGSAP) window.gsap.registerPlugin(window.ScrollTrigger);
       return;
     }
 
     window.gsap.registerPlugin(window.ScrollTrigger);
-    fitWordmark();
-    window.addEventListener('resize', fitWordmark);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitWordmark);
-    window.gsap.set('#wmStage', { scale: 7, opacity: 0, transformOrigin: 'center center' });
-    window.gsap.set('#heroLower', { opacity: 0, y: 24 });
+    window.gsap.set('#heroFrame', { clipPath: 'inset(48% 0% 48% 0%)' });
+    window.gsap.set('#heroMedia', { scale: 1.12 });
+    window.gsap.set(['#heroCta', '#heroTrust'], { opacity: 0, y: 24 });
     setupReveals();
     setupManifeste();
     setupSeparators();
@@ -56,6 +52,7 @@
     setupNever();
     setupMethode();
     setupMagnetic();
+    setupDock();
     setupFAQ();
     setupPreloader();
 
@@ -109,12 +106,15 @@
   function runHero() {
     if (reduce || !window.gsap) return;
     var gsap = window.gsap;
-    fitWordmark();
-    var tl = gsap.timeline({ defaults: { ease: EXPO }, onComplete: setupDock });
-    tl.fromTo('#wmStage', { scale: 7, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.7, ease: 'power4.inOut' }, 0)
-      .to('.hero .eyebrow > span', { y: 0, duration: 0.9 }, 0.55)
-      .to('#heroLower', { opacity: 1, y: 0, duration: 0.9 }, 1.0)
-      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, 1.15);
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.to('#heroFrame', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.15, ease: 'power4.inOut' }, 0)
+      .to('#heroMedia', { scale: 1, duration: 1.5, ease: 'power3.out' }, 0)
+      .to('.hero .eyebrow > span', { y: 0, duration: 0.8 }, 0.4)
+      .to('.hero-title .w', { y: 0, duration: 1, stagger: 0.06 }, 0.5)
+      .to('.hero-sub > span', { y: 0, duration: 0.9 }, '-=0.6')
+      .to('#heroCta', { opacity: 1, y: 0, duration: 0.7 }, '-=0.55')
+      .to('#heroTrust', { opacity: 1, y: 0, duration: 0.6 }, '-=0.5')
+      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, '-=0.7');
   }
 
   /* ---------------- HEADER ---------------- */
@@ -329,24 +329,31 @@
   }
 
   /* ---------------- HERO PARALLAX ---------------- */
-  function fitWordmark() {
-    var stage = document.getElementById('wmStage');
-    var t = document.getElementById('wmText');
-    if (!stage || !t) return;
-    var w = stage.clientWidth || window.innerWidth;
-    t.setAttribute('textLength', Math.round(w * 0.9));
-    t.setAttribute('lengthAdjust', 'spacingAndGlyphs');
-  }
-
   function setupDock() {
     if (reduce || !window.gsap) return;
     var gsap = window.gsap;
-    var stage = document.getElementById('wmStage');
-    if (!stage) return;
+    var frame = document.getElementById('heroFrame');
+    if (!frame) return;
+    gsap.set(frame, { transformOrigin: '50% 16%' });
+    var veil = document.getElementById('heroVeil');
     var copy = document.getElementById('heroCopy');
-    gsap.timeline({ scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.5 } })
-      .to(stage, { scale: 1.12, opacity: 0.5, ease: 'none' }, 0)
-      .to(copy, { y: -40, opacity: 0, ease: 'none' }, 0);
+    var brand = document.getElementById('heroBrandline');
+    var letters = document.querySelectorAll('#heroWord .hw > i');
+    gsap.set(letters, { yPercent: 120 });
+    if (brand) gsap.set(brand, { opacity: 0, y: 16 });
+
+    var tl = gsap.timeline({
+      defaults: { ease: 'none' },
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: 0.6 }
+    });
+    tl.to(copy, { opacity: 0, y: -60, duration: 0.35 }, 0);
+    tl.to(veil, { opacity: 0, duration: 0.5 }, 0);
+    tl.to(frame, { scale: 0.55, borderRadius: 26, duration: 1 }, 0);
+    tl.fromTo(frame,
+      { boxShadow: '0 40px 90px -30px rgba(16,20,40,0)' },
+      { boxShadow: '0 50px 110px -34px rgba(16,20,40,0.5)', duration: 1 }, 0);
+    tl.to(letters, { yPercent: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out' }, 0.42);
+    if (brand) tl.to(brand, { opacity: 1, y: 0, duration: 0.35 }, 0.72);
   }
 
   /* ---------------- VIDEO ---------------- */
@@ -357,7 +364,7 @@
     var conn = navigator.connection || {};
     var slow = conn.saveData || /2g/.test(conn.effectiveType || '');
     if ((window.innerWidth < 760 || slow) && src) {
-      src.src = 'video/hero-mobile.mp4';
+      src.src = 'video/nova-mobile.mp4';
       v.load();
     }
     var p = v.play();
