@@ -99,16 +99,9 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
-    <div class="hero-stage">
-      <div class="hero-frame" id="heroFrame">
-        <div class="hero-media" id="heroMedia">
-          <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/nova-poster.jpg">
-            <source src="video/nova.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="hero-veil" id="heroVeil"></div>
-      </div>
-      <div class="hero-copy" id="heroCopy">
+    <div class="hero-bloom" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
         <p class="eyebrow reveal-line"><span>Studio web &#183; Antilles fran&#231;aises</span></p>
         <h1 class="hero-title">
           <span class="line"><span class="w">Le</span> <span class="w">meilleur</span> <span class="w">du</span> <span class="w">web,</span></span>
@@ -125,8 +118,19 @@
           <li>En ligne sous 2 semaines</li>
         </ul>
       </div>
-      <div class="hero-word" id="heroWord" aria-hidden="true"><span class="hw"><i>N</i></span><span class="hw"><i>O</i></span><span class="hw"><i>V</i></span><span class="hw"><i>A</i></span><span class="hw"><i>L</i></span><span class="hw"><i>E</i></span><span class="hw"><i>M</i></span></div>
-      <div class="hero-brandline" id="heroBrandline">Studio web des Antilles fran&#231;aises</div>
+      <div class="hero-visual" id="heroVisual">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <figure class="hero-panel">
+          <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/nova-poster.jpg">
+            <source src="video/nova.mp4" type="video/mp4">
+          </video>
+          <figcaption class="hero-panel-badge"><span class="hpb-dot"></span>Antilles fran&#231;aises</figcaption>
+          <div class="hero-panel-glass">
+            <span class="hpg-k">Notre &#233;toile</span>
+            <span class="hpg-t">viser haut, aimer ce qu'on fait</span>
+          </div>
+        </figure>
+      </div>
     </div>
   </section>
 

@@ -42,9 +42,8 @@
     }
 
     window.gsap.registerPlugin(window.ScrollTrigger);
-    window.gsap.set('#heroFrame', { clipPath: 'inset(48% 0% 48% 0%)' });
-    window.gsap.set('#heroMedia', { scale: 1.12 });
-    window.gsap.set(['#heroCta', '#heroTrust'], { opacity: 0, y: 24 });
+    window.gsap.set('.hero-visual', { opacity: 0, y: 30, scale: 0.985 });
+    window.gsap.set(['#heroCta', '#heroTrust'], { opacity: 0, y: 22 });
     setupReveals();
     setupManifeste();
     setupSeparators();
@@ -107,14 +106,13 @@
     if (reduce || !window.gsap) return;
     var gsap = window.gsap;
     var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.to('#heroFrame', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.15, ease: 'power4.inOut' }, 0)
-      .to('#heroMedia', { scale: 1, duration: 1.5, ease: 'power3.out' }, 0)
-      .to('.hero .eyebrow > span', { y: 0, duration: 0.8 }, 0.4)
-      .to('.hero-title .w', { y: 0, duration: 1, stagger: 0.06 }, 0.5)
+    tl.to('.hero .eyebrow > span', { y: 0, duration: 0.8 }, 0.1)
+      .to('.hero-title .w', { y: 0, duration: 1, stagger: 0.06 }, 0.2)
       .to('.hero-sub > span', { y: 0, duration: 0.9 }, '-=0.6')
-      .to('#heroCta', { opacity: 1, y: 0, duration: 0.7 }, '-=0.55')
+      .to('#heroCta', { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
       .to('#heroTrust', { opacity: 1, y: 0, duration: 0.6 }, '-=0.5')
-      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, '-=0.7');
+      .to('.hero-visual', { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power4.out' }, '-=1.1')
+      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, '-=0.8');
   }
 
   /* ---------------- HEADER ---------------- */
@@ -330,30 +328,14 @@
 
   /* ---------------- HERO PARALLAX ---------------- */
   function setupDock() {
-    if (reduce || !window.gsap) return;
+    if (reduce || !window.gsap || window.innerWidth < 900) return;
     var gsap = window.gsap;
-    var frame = document.getElementById('heroFrame');
-    if (!frame) return;
-    gsap.set(frame, { transformOrigin: '50% 16%' });
-    var veil = document.getElementById('heroVeil');
-    var copy = document.getElementById('heroCopy');
-    var brand = document.getElementById('heroBrandline');
-    var letters = document.querySelectorAll('#heroWord .hw > i');
-    gsap.set(letters, { yPercent: 120 });
-    if (brand) gsap.set(brand, { opacity: 0, y: 16 });
-
-    var tl = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: 0.6 }
+    var panel = document.querySelector('.hero-panel');
+    if (!panel) return;
+    gsap.to(panel, {
+      yPercent: -7, ease: 'none',
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true }
     });
-    tl.to(copy, { opacity: 0, y: -60, duration: 0.35 }, 0);
-    tl.to(veil, { opacity: 0, duration: 0.5 }, 0);
-    tl.to(frame, { scale: 0.55, borderRadius: 26, duration: 1 }, 0);
-    tl.fromTo(frame,
-      { boxShadow: '0 40px 90px -30px rgba(16,20,40,0)' },
-      { boxShadow: '0 50px 110px -34px rgba(16,20,40,0.5)', duration: 1 }, 0);
-    tl.to(letters, { yPercent: 0, duration: 0.5, stagger: 0.05, ease: 'power3.out' }, 0.42);
-    if (brand) tl.to(brand, { opacity: 1, y: 0, duration: 0.35 }, 0.72);
   }
 
   /* ---------------- VIDEO ---------------- */
