@@ -37,14 +37,18 @@
       if (pl) pl.style.display = 'none';
       document.body.classList.remove('is-loading');
       fillCountersStatic();
+      fitWordmark();
+      window.addEventListener('resize', fitWordmark);
       if (hasGSAP) window.gsap.registerPlugin(window.ScrollTrigger);
       return;
     }
 
     window.gsap.registerPlugin(window.ScrollTrigger);
-    window.gsap.set('#heroFrame', { clipPath: 'inset(48% 0% 48% 0%)' });
-    window.gsap.set('#heroMedia', { scale: 1.12 });
-    window.gsap.set(['#heroCta', '#heroTrust'], { opacity: 0, y: 26 });
+    fitWordmark();
+    window.addEventListener('resize', fitWordmark);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitWordmark);
+    window.gsap.set('#wmStage', { scale: 7, opacity: 0, transformOrigin: 'center center' });
+    window.gsap.set('#heroLower', { opacity: 0, y: 24 });
     setupReveals();
     setupManifeste();
     setupSeparators();
@@ -52,7 +56,6 @@
     setupNever();
     setupMethode();
     setupMagnetic();
-    setupDock();
     setupFAQ();
     setupPreloader();
 
@@ -106,15 +109,12 @@
   function runHero() {
     if (reduce || !window.gsap) return;
     var gsap = window.gsap;
-    var tl = gsap.timeline({ defaults: { ease: EXPO } });
-    tl.to('#heroFrame', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.15, ease: 'power4.inOut' }, 0)
-      .to('#heroMedia', { scale: 1, duration: 1.5, ease: 'power3.out' }, 0)
-      .to('.hero .eyebrow > span', { y: 0, duration: 0.9 }, 0.4)
-      .to('.hero-title .w', { y: 0, duration: 1, stagger: 0.06 }, 0.5)
-      .to('.hero-sub > span', { y: 0, duration: 0.9 }, '-=0.6')
-      .to('#heroCta', { opacity: 1, y: 0, duration: 0.8 }, '-=0.55')
-      .to('#heroTrust', { opacity: 1, y: 0, duration: 0.7 }, '-=0.6')
-      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, '-=0.7');
+    fitWordmark();
+    var tl = gsap.timeline({ defaults: { ease: EXPO }, onComplete: setupDock });
+    tl.fromTo('#wmStage', { scale: 7, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.7, ease: 'power4.inOut' }, 0)
+      .to('.hero .eyebrow > span', { y: 0, duration: 0.9 }, 0.55)
+      .to('#heroLower', { opacity: 1, y: 0, duration: 0.9 }, 1.0)
+      .to('#brandEmblem', { opacity: 1, duration: 0.6 }, 1.15);
   }
 
   /* ---------------- HEADER ---------------- */
@@ -329,21 +329,24 @@
   }
 
   /* ---------------- HERO PARALLAX ---------------- */
+  function fitWordmark() {
+    var stage = document.getElementById('wmStage');
+    var t = document.getElementById('wmText');
+    if (!stage || !t) return;
+    var w = stage.clientWidth || window.innerWidth;
+    t.setAttribute('textLength', Math.round(w * 0.9));
+    t.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+  }
+
   function setupDock() {
     if (reduce || !window.gsap) return;
     var gsap = window.gsap;
-    var frame = document.getElementById('heroFrame');
-    if (!frame) return;
-    var veil = document.getElementById('heroVeil');
+    var stage = document.getElementById('wmStage');
+    if (!stage) return;
     var copy = document.getElementById('heroCopy');
-    var label = document.getElementById('heroCardLabel');
-    var tl = gsap.timeline({ defaults: { ease: 'none' },
-      scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom bottom', scrub: 0.6 } });
-    tl.to(copy, { opacity: 0, y: -50, duration: 0.4 }, 0);
-    tl.to(veil, { opacity: 0, duration: 0.6 }, 0);
-    tl.to(frame, { scale: 0.86, borderRadius: 30, duration: 1 }, 0);
-    tl.fromTo(frame, { boxShadow: '0 40px 90px -30px rgba(16,20,40,0)' }, { boxShadow: '0 40px 90px -30px rgba(16,20,40,0.45)', duration: 1 }, 0);
-    tl.to(label, { opacity: 1, duration: 0.35 }, 0.6);
+    gsap.timeline({ scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.5 } })
+      .to(stage, { scale: 1.12, opacity: 0.5, ease: 'none' }, 0)
+      .to(copy, { y: -40, opacity: 0, ease: 'none' }, 0);
   }
 
   /* ---------------- VIDEO ---------------- */

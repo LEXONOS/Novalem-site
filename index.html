@@ -99,35 +99,29 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
-    <div class="hero-stage">
-      <div class="hero-frame" id="heroFrame">
-        <div class="hero-media" id="heroMedia">
-          <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" poster="video/hero-poster.jpg">
-            <source src="video/hero.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="hero-veil" id="heroVeil"></div>
-        <div class="hero-card-label" id="heroCardLabel">
-          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="22.4" stroke="currentColor" stroke-width="1.6"/><path d="M24 12C24 20 28 24 36 24C28 24 24 28 24 36C24 28 20 24 12 24C20 24 24 20 24 12Z" fill="currentColor"/></svg>
-          <span>Studio Novalem, l'atelier en mouvement</span>
-        </div>
-      </div>
-      <div class="hero-copy" id="heroCopy">
-        <p class="eyebrow reveal-line"><span>Studio web · Antilles françaises</span></p>
-        <h1 class="hero-title">
-          <span class="line"><span class="w">Le</span> <span class="w">meilleur</span> <span class="w">du</span> <span class="w">web,</span></span>
-          <span class="line"><span class="w serif">enfin</span> <span class="w serif">abordable.</span></span>
-        </h1>
-        <p class="hero-sub reveal-line"><span>Des sites codés main, augmentés à l'IA, pensés au pixel près. Le prestige d'une agence, sans son tarif ni ses abonnements.</span></p>
+    <div class="wm-stage" id="wmStage">
+      <video id="wmVideo" class="wm-video" autoplay muted loop playsinline preload="auto" poster="video/nova-poster.jpg">
+        <source src="video/nova.mp4" type="video/mp4">
+      </video>
+      <svg class="wm-knock" id="wmKnock" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <mask id="wmMask">
+            <rect x="0" y="0" width="100%" height="100%" fill="#fff"></rect>
+            <text id="wmText" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">NOVALEM</text>
+          </mask>
+        </defs>
+        <rect class="wm-fill" x="0" y="0" width="100%" height="100%" mask="url(#wmMask)"></rect>
+      </svg>
+    </div>
+    <div class="hero-copy hero-copy--wm" id="heroCopy">
+      <p class="eyebrow reveal-line" id="heroEyebrow"><span>Studio web &#183; Antilles fran&#231;aises</span></p>
+      <div class="hero-lower" id="heroLower">
+        <p class="hero-sub"><span class="hs-line">Le meilleur du web, <em>enfin abordable.</em></span></p>
+        <p class="hero-note">Sites cod&#233;s main, augment&#233;s &#224; l'IA. Le prestige d'une agence, sans son tarif ni ses abonnements.</p>
         <div class="hero-cta" id="heroCta">
           <a href="#contact" class="btn btn-primary magnetic"><span class="btn-label">Parler du projet</span><span class="btn-arrow">&#8594;</span></a>
           <a href="#realisations" class="btn btn-ghost magnetic"><span class="btn-label">Voir les r&#233;alisations</span></a>
         </div>
-        <ul class="hero-trust" id="heroTrust">
-          <li>4 &#238;les</li>
-          <li>Z&#233;ro abonnement</li>
-          <li>En ligne sous 2 semaines</li>
-        </ul>
       </div>
     </div>
   </section>
